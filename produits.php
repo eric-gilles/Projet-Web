@@ -1,3 +1,14 @@
+<?php 
+/* 
+ * /produit.php
+ * Liste de tous les produits
+ *
+ * @author : As web voiture
+ * @date : 04/2021
+*/
+?>
+
+
 <!DOCTYPE html>
 <html lang="fr">
 <head>

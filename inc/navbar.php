@@ -1,15 +1,30 @@
+<?php 
+/* 
+ * /navbar.php
+ * Barre de naviguation pour le site ?
+ * Fichier à appeler au début des page du site internet
+ * Code à utiliser : "require_once './inc/navbar.php';"
+ * 
+ * @author : As web voiture
+ * @date : 04/2021
+*/
+?>
 <!-- Barre de navigation avec logo -->  
-<nav class="navbar navbar-expand-md navbar-light fixed-top bg-light">
-    <a class="navbar-brand" href="">
-        <img src="./img/logo_ecolocar_100x100.png" alt="Logo">
+<nav style="background-color: #23272b;" class="navbar navbar-expand-md navbar-light fixed-top">
+    <a class="navbar-brand" id='logo' href="">
+        <img src="./img/logo.jpg" width="100" height="100" alt="Logo">
     </a>
     <ul class="navbar-nav mr-auto">
-        <li class="nav-item active">
-            <a class="nav-link" href="./index.php">Accueil</a>
+        <li class="nav-item">
+            <a style="color: #005cbf;" class="nav-link"  href="./index.php">Accueil</a>
         </li>
         <li class="nav-item">
-            <a class="nav-link" href="./produits.php">Les produits</a>
+            <a style="color:white;" class="nav-link" href="./produits.php">Les produits</a>
         </li>
+        <li class="nav-item"> 
+            <a style="color: #bd2130;"class="nav-link" href="./contact.php">Nous Contacter</a>
+        </li>
+        
     </ul>
 </nav>
 <!-- Fin barre de navigation avec logo -->
