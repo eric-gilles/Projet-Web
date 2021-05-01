@@ -4,8 +4,7 @@
  * Barre de naviguation pour le site ?
  * Fichier à appeler au début des page du site internet
  * Code à utiliser : "require_once './inc/navbar.php';"
- * 
- * @author : As web voiture
+ * @author : AS Web Voiture
  * @date : 04/2021
 */
 ?>
