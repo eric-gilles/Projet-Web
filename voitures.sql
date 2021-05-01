@@ -15,9 +15,17 @@ CREATE TABLE Voitures(
 	modele VARCHAR NOT NULL,
 	couleur VARCHAR NOT NULL,
 	kilometrage INT NOT NULL,
+	prix FLOAT NOT NULL,
 	description1 VARCHAR NOT NULL,
 	description2 VARCHAR NOT NULL,
-	constraint pk_voitures primary key(id)
+	constraint pk_voitures primary key(id),
+	constraint fk_voitures foreign key(marque) REFERENCES Marques(marque)
+);
+
+CREATE TABLE Marques(
+	id INT NOT NULL AUTO_INCREMENT,
+	marque VARCHAR NOT NULL,
+	constraint pk_marques primary key(id),
 );
 
 ------------------------------------------
@@ -33,3 +41,10 @@ insert into Voitures values(7,);
 insert into Voitures values(8,);
 insert into Voitures values(9,);
 insert into Voitures values(10,);
+insert into Voitures values(11,);
+insert into Voitures values(12,);
+
+insert into Marques values(1,);
+insert into Marques values(1,);
+insert into Marques values(1,);
+insert into Marques values(1,);

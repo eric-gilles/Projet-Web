@@ -18,6 +18,7 @@ class Voiture
 	private $modele;
 	private $couleur;
 	private $kilometrage;
+	private $prix;
 	private $description1;
 	private $description2;
 
@@ -39,7 +40,7 @@ class Voiture
 	/**
 	 * @return $immatriculation
 	 */
-	public function getImmatriculation($immatriculation)
+	public function getImmatriculation()
 	{
 	    return $this->immatriculation;
 	}
@@ -74,6 +75,14 @@ class Voiture
 	public function getKilometrage()
 	{
 	    return $this->kilometrage;
+	}
+
+	/**
+	 * @return $prix
+	 */
+	public function getPrix()
+	{
+	    return $this->prix;
 	}
 
 	/**
@@ -133,6 +142,14 @@ class Voiture
 	public function setKilometrage($kilometrage)
 	{
 	    $this->kilometrage = $kilometrage;
+	}
+
+	/**
+	 * @param $prix
+	 */
+	public function setPrix($prix)
+	{
+	    $this->prix = $prix;
 	}
 
 	/**
