@@ -3,7 +3,7 @@
 /** 
  * index.php
  * Page d'accueil du Projet
- * @author E.Gilles
+ * @author E.Gilles & L.Boullee
  * @date 04/2021
  */
 ?><!DOCTYPE html>
@@ -20,6 +20,7 @@
 </head>
 <body>
 	<?php
+	//barre de navigation
 	require_once './inc/navbar.php';
 	?>
 

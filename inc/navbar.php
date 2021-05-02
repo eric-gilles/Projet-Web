@@ -1,17 +1,16 @@
 <?php 
 /* 
- * /navbar.php
- * Barre de naviguation pour le site ?
+ * /inc/navbar.php
+ * Barre de navigation pour le site
  * Fichier à appeler au début des page du site internet
  * Code à utiliser : "require_once './inc/navbar.php';"
- * 
- * @author : As web voiture
+ * @author : AS Web Voiture
  * @date : 04/2021
 */
 ?>
 <!-- Barre de navigation avec logo -->  
 <nav style="background-color: #23272b;" class="navbar navbar-expand-md navbar-light fixed-top">
-    <a class="navbar-brand" id='logo' href="">
+    <a class="navbar-brand" id='logo' href="index.php">
         <img src="./img/logo.jpg" width="100" height="100" alt="Logo">
     </a>
     <ul class="navbar-nav mr-auto">
