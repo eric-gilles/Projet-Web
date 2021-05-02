@@ -51,7 +51,7 @@
         <input type="submit" value="Envoyer" />
         
     </form>
-    
+            <!-- Envoie de l'email au contact de l'entreprise -->         
     <?php
     if (isset($_POST['message'])) {
         $position_arobase = strpos($_POST['email'], '@');
@@ -66,6 +66,11 @@
         }
     }
     ?>
+    <!-- Affichage footer -->
+    <?php
+        require_once 'inc/footer.php';
+    ?>
+    <!-- Fin affichage footer -->
             
             
 </body>
