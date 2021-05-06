@@ -17,7 +17,7 @@
   <div class="container p-4">
     <!--Grid row-->
     <div class="row">
-      <!--Grid column-->
+      <!--Petit résumé de l'entreprise-->
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
         <h5 class="text-uppercase" style='color:#005cbf;'>Nous somme :</h5>
 
@@ -27,32 +27,28 @@
             de l'historique de la voiture. N'hésiter pas à nous contacter pour plus d'information
         </p>
       </div>
-      <!--Grid column-->
+      <!-- Fin résumé-->
 
-      <!--Grid column-->
+      <!--Réseaux sociaux-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
         <h5 style="color:white;" class="text-uppercase">Suivez-nous :</h5>
-
-        <ul class="list-unstyled mb-0">
-          <li>
-            <a href=""> 
+        <br>  
+        <a href="http://facebook.com"> 
             <img src="./img/social/facebook.png" width="50" height="50" alt="facebook logo">
-            </a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Link 2</a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Link 3</a>
-          </li>
-          <li>
-            <a href="#!" class="text-dark">Link 4</a>
-          </li>
-        </ul>
-      </div>
-      <!--Grid column-->
+        </a>
 
-      <!--Grid column-->
+        <a href="http://youtube.com"> 
+            <img src="./img/social/youtube.png" width="50" height="50" alt="youtube logo">
+        </a>
+
+        <a href="http://instagram.com"> 
+            <img src="./img/social/instagram.png" width="50" height="50" alt="instagram logo">
+        </a>
+        
+      </div>
+      <!--Fin réseaux sociaux-->
+
+      <!--Contact-->
       <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="color: #bd2130;">
         <h5 style="color: #bd2130;" class="text-uppercase mb-0">Contacter nous :</h5>
         <br>
@@ -74,7 +70,7 @@
           </li>
         </ul>
       </div>
-      <!--Grid column-->
+      <!--Fin contact-->
     </div>
     <!--Grid row-->
   </div>

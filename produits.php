@@ -9,18 +9,18 @@
 
 
 // inclus les fichiers
-	require_once './model/DbManager.php';
-	require_once './class/Voiture.php';
+require_once './model/DbManager.php';
+require_once './class/Voiture.php';
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
-	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-	<title>Les produits</title>
+    <title>Les produits</title>
 
 	<!-- Bootstrap & CSS -->
-	<link rel="stylesheet" href="./css/style.css">
+    <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
 </head>
