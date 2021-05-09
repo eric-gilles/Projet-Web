@@ -11,7 +11,7 @@
 <!-- Barre de navigation avec logo -->  
 <nav style="background-color: #23272b;" class="navbar navbar-expand-md navbar-light fixed-top">
     <a class="navbar-brand" id='logo' href="index.php">
-        <img src="./img/logo.jpg" width="200" height="200" alt="Logo">
+        <img src="./img/logo.jpeg" width="50" height="50" alt="Logo">
     </a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">

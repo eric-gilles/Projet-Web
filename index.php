@@ -20,7 +20,7 @@
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
 </head>
-<body class="fond-route">
+<body class="background-color-grey">
     
     <!-- barre de naviguation + jumbotron -->
     <?php
@@ -31,11 +31,8 @@
     ?>
     <!-- Fin jumbotron+bar de naviguation -->
     
-    <!-- Affichage image voiture française -->
-    <img src="img/index-img/voiture.jpg" alt="photo de voiture"/>
-    <!-- Fin affichage -->
     
-    <div style="background-color: #005cbf;">
+    <div style="background-color: #062c33;">
         
         <!-- Petit résumé -->
         <h1>Qui somme nous ?</h1>
@@ -44,9 +41,7 @@
             à des modèles plus rare comme le Renault Avantime. Nous nous engageons à trouver la voiture de vos rêve
             . Vous ne trouvez pas l'automobile que vous désirez sur notre site n'hésitez pas à contacter un de nos conseillers
             pour que celui-ci vous aide dans vos recherche.
-        </p>
-        
-        
+        </p>    
     </div>
     
     <!-- Affichage de ./footer.php -->
