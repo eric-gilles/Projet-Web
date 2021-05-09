@@ -32,32 +32,30 @@
     <div class="container">
         <div class="row pt-5">
             <div class="col">
-        <h2 class='padding-left-10'>Nos informations de Contact :</h2>
-        <ul>
-            <ol>Par téléphone : 06 06 06 06 06 06</ol>
-            <ol>Par mail : <a href="mailto:contact@francauto.fr">contact@francauto.fr</a></ol>
-            <ol>Ou directement en agence à  l'adresse : 
+                <div class="border rounded text-color-white" style="background-color: #05182e">
+                <h2 class='padding-left-10'>Nos informations de Contact :</h2>
                 <ul>
-                    <li>66 avenue des enfer</li>
-                    <li>7777 Le tartarosse</li>
-                </ul>  
-            </ol>
-        </ul>
+                    <ol>Par téléphone : 06 06 06 06 06 06</ol>
+                    <ol>Par mail : <a href="mailto:contact@francauto.fr">contact@francauto.fr</a></ol>
+                    <ol>Ou directement en agence à  l'adresse : 
+                        <ul>
+                            <li>66 avenue des enfer</li>
+                            <li>7777 Le tartarosse</li>
+                        </ul>  
+                    </ol>
+                </ul>
+                </div>
+            </div>
+            <div class="col border rounded text-color-white" style='background-color: #a80f0e'>
+                <h2 class='padding-left-10'>Demande d'information :</h2>
+                <form class="padding-left-30" method="post">
+                    <input type="email" name="email" required placeholder="exemple@gmail.com"><br>
+                    <textarea rows="10" cols="50" name="message" placeholder="Votre message ici"></textarea><br>
+                    <input type="submit" value="Envoyer"/>
+                </form>
+            </div>
+        </div>
     </div>
-    <div class="col">
-        <h2 class='padding-left-10'>Ou contacte nous directement :</h2>
-        <form class="padding-left-30" method="post">
-            <input type="email" name="email" required placeholder="exemple@gmail.com"><br>
-            <textarea rows="10" cols="50" name="message" placeholder="Votre message ici"></textarea><br>
-            <input type="submit" value="Envoyer"/>
-            
-        </form>
-    </div>
-    </div>
-
-        </ol>
-    </ul> 
-    </form>
             <!-- Envoie de l'email au contact de l'entreprise -->         
     <?php
     if (isset($_POST['message'])) {

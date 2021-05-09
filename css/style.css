@@ -3,11 +3,9 @@ body {
 
 }
 
-.fond-route{
-    background-color:black;
-    background-image: url(../img/fond-site_1.jpg);
-    background-size: cover;
-    background-repeat: no-repeat;
+.carousel-marque{
+    width: 40%;
+    background-color: #002752;
 }
 
 .padding-left-10{
@@ -29,4 +27,11 @@ body {
   
 .footer-font{
     font-size: smaller;
+}
+
+.jumbotron-background{
+    background-image: url(../img/voiture-jumbotron.jpg);
+    background-position: center;
+    background-size: cover ;
+    background-repeat: no-repeat;
 }

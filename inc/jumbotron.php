@@ -9,7 +9,7 @@
  */
 
 ?>
-<div class="jumbotron rounded " style="background-image: url('./img/voiture-jumbotron.jpg')">
+<div class="jumbotron  jumbotron-background text-color-white">
     <h1 class="display-4">FrancAuto des voitures 100% française</h1>
     <p>Trouve ta voiture patriote des maintenant :</p>
 
