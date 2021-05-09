@@ -12,7 +12,7 @@
 
 
 <!-- Footer -->
-<footer class="text-center text-lg-start" style="background-color: #818182;">
+<footer class="text-center text-lg-start footer-font" style="background-color: #818182;">
   <!-- Grid container -->
   <div class="container p-4">
     <!--Grid row-->

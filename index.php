@@ -32,7 +32,7 @@
     <!-- Fin jumbotron+bar de naviguation -->
     
     
-    <div style="background-color: #062c33;">
+    <div style="background-color: #23272b;">
         
         <!-- Petit résumé -->
         <h1>Qui somme nous ?</h1>
