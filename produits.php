@@ -10,7 +10,9 @@
 
 // inclus les fichiers
 	require_once './model/DbManager.php';
+	require_once './model/MarqueManager.php';
 	require_once './class/Voiture.php';
+	require_once './class/Marque.php';
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -25,7 +27,6 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap">
-  	<link rel="stylesheet" href="./css/mdb-pro.min.css">
   	<link rel="stylesheet" href="./css/mdb.min.css">
 </head>
 <body>
@@ -37,9 +38,73 @@
 		
 		echo "<br><br>\n<div class='row h-100'>";
 
-		require_once './inc/filtres.php';
+?>
+	<!-- Barre de Recherche -->
+	<div class="container">
+	    <div class="row mb-5">
+	        <div class="col-lg-7 mx-auto">
+	            <div class="bg-white p-5 rounded shadow">
+	                                    <!-- Filtres de recherche -->
+	                    <div class="container-fluid">
+	                        <div class="row">
+	                            <h6 class="text-info">Marque</h6>
+	                            <div class="col-4">
+	                            	<br>
+	                                
+	                                    <?php 
+	                                        $marques = MarqueManager::getLesMarques();
+	                                        //var_dump($marques);
+	                                        echo '<ul class="list-group list-group-horizontal-sm">';
+	                                        $i = 0;
+	                                        foreach ($marques as $value) {
+	                                        	echo '<li class="list-group-item flex-fill">';
+	                                    	echo '<div class="form-check">';
+	                                    		echo '<label class="form-chek-label">';
+	                                    			echo '<input type="checkbox" class="form-check-input product_check" value="'.$value->getMarque().'" id="marque">'.$value->getMarque().'</label>';
+	                                    	echo "\n</li>\n<div>";
+	                                    	$i++;
+	                                    	if ($i == 2) {
+	                                    		echo "</ul><ul class='list-group list-group-horizontal-sm'>";
+	                                    	}
+	                                    	if ($i == 4) {
+	                                    		echo "</ul>";
+	                                    	}
+	                                        }
+	                                        
+	                                    ?>
+	                                    
 
-		require_once './inc/barre_de_recherche.php';
+
+	                            </div>
+	                            <div class="col-lg-9">
+	                                
+	                            </div>
+	                        </div>
+	                    </div>
+	                    <!-- Fin Filtres de recherche-->
+
+
+
+	                        <!-- Input Champ de recherche -->
+	                        <div class="form-group col-md-9">
+	                            <input id="exampleFormControlInput5" type="search" placeholder="Rechercher une voiture" name="search"class="form-control form-control-underlined">
+	                        </div>
+
+	                        <!-- Bouton  envoyer -->
+	                        <div class="form-group col-md-9">
+	                            <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Rechercher</button>
+	                        </div>
+
+	                    </div>
+	                </form>
+	                <!-- Fin du Formulaire de recherche produit -->
+
+	            </div>
+	        </div>
+	    </div>
+	</div>
+	<!-- Fin de la Barre de Recherche -->
+<?php
 
 		
 

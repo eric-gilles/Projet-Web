@@ -11,11 +11,11 @@ class DbManager
   
 
   //attributs liés à la connexion avec la base de données à changer en fonction de la base de données
-  private const HOST = 'webinfo.iutmontp.univ-montp2.fr';
+  private const HOST = 'localhost';
   private const PORT = '3306';
-  private const DBNAME = 'gillese';
-  private const LOGIN = 'gillese';
-  private const MDP = '8ZyQwdmS';
+  private const DBNAME = 'projetweb';
+  private const LOGIN = 'root';
+  private const MDP = '';
   private static $cnx = null;
 
   public static function getConnection()
