@@ -6,6 +6,11 @@
  * @author E.Gilles & L.Boullee
  * @date 04/2021
  */
+// inclus les fichiers
+require_once './model/DbManager.php';
+require_once './model/VoitureManager.php';
+require_once './class/Marque.php';
+require_once './model/MarqueManager.php';
 class Voiture
 {
 	/*
