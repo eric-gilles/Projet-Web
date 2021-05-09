@@ -54,6 +54,18 @@
         </form>
     </div>
     </div>
+
+        </ol>
+    </ul>
+    
+    <h2 class='padding-left-10'>Ou contacte nous directement :<h2>
+    <form class="padding-left-30" method="post">
+        <input type="email" name="email" required placeholder="exemple@gmail.com"><br>
+        <textarea rows="10" cols="50" name="message" placeholder="Votre message ici"></textarea><br>
+        <input type="submit" value="Envoyer" />
+        
+    </form>
+            <!-- Envoie de l'email au contact de l'entreprise -->         
     <?php
     if (isset($_POST['message'])) {
         $position_arobase = strpos($_POST['email'], '@');
@@ -68,6 +80,11 @@
         }
     }
     ?>
+    <!-- Affichage footer -->
+    <?php
+        require_once 'inc/footer.php';
+    ?>
+    <!-- Fin affichage footer -->
             
             
 </body>
