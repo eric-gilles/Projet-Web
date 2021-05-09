@@ -19,12 +19,12 @@
     <div class="row">
       <!--Petit résumé de l'entreprise-->
       <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
-        <h5 class="text-uppercase" style='color:#005cbf;'>Nous somme :</h5>
+        <h5 class="text-uppercase" style='color:#005cbf;'>Nous sommes :</h5>
 
         <p style='color:#005cbf;'>
             Une entreprise française voulant proposer à nos clients des voitures de marque française.
-            Toute nos voiture sont livré avec les accessoire d'origines aisin que une traçabilité complète
-            de l'historique de la voiture. N'hésiter pas à nous contacter pour plus d'information
+            Toutes nos voitures sont livrés avec les accessoires d'origines ainsi qu'une traçabilité complète
+            de l'historique de la voiture. N'hésiter pas à nous contacter pour plus d'informations.
         </p>
       </div>
       <!-- Fin résumé-->
