@@ -9,6 +9,12 @@ drop table Marques;
 ------------------------------------------
 --On crée les tables et leurs contraintes 
 ------------------------------------------
+CREATE TABLE Marques(
+	id INT NOT NULL AUTO_INCREMENT,
+	marque VARCHAR NOT NULL,
+	constraint pk_marques primary key(id)
+);
+
 CREATE TABLE Voitures(
 	id INT NOT NULL AUTO_INCREMENT,
 	immatriculation VARCHAR NOT NULL,
@@ -25,12 +31,6 @@ CREATE TABLE Voitures(
 	description2 VARCHAR NOT NULL,
 	constraint pk_voitures primary key(id),
 	constraint fk_voitures foreign key(marque) REFERENCES Marques(marque)
-);
-
-CREATE TABLE Marques(
-	id INT NOT NULL AUTO_INCREMENT,
-	marque VARCHAR NOT NULL,
-	constraint pk_marques primary key(id),
 );
 
 ------------------------------------------
