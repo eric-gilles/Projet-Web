@@ -1,29 +1,29 @@
-
-
 <!-- Barre de Recherche -->
-<div id="content" class="row">
-    <!-- Formulaire de recherche produit -->
-    <div id="recherche-form" class="offset-3 col-4">
-        <h1 class="text-primary">Les Voitures</h1>
-        <div class="row">
-            <form class="col border border-dark rounded py-2" method="POST" action="./produits.php">
-                <!--  Input champ de Recherche -->
-                <div class="input-group offset-3">
-                    <div class="form-outline">
-                        <input type="search" id="form1" class="form-control" name="product-id-search" placeholder="Rechercher une Voiture"/>
+<div class="container">
+    <div class="row mb-5">
+        <div class="col-lg-7 mx-auto">
+            <div class="bg-white p-5 rounded shadow">
+
+                <!-- Formulaire de recherche produit -->
+                <form method="POST" action="./produits.php">
+                    <div class="row justify-content-center">
+
+                         <!-- Input Champ de recherche -->
+                        <div class="form-group col-md-9">
+                            <input id="exampleFormControlInput5" type="search" placeholder="Rechercher une voiture" name="search"class="form-control form-control-underlined">
+                        </div>
+
+                        <!-- Bouton  envoyer -->
+                        <div class="form-group col-md-9">
+                            <button type="submit" class="btn btn-primary rounded-pill btn-block shadow-sm">Rechercher</button>
+                        </div>
+
                     </div>
-                    <!-- Bouton envoyer -->
-                    <button type="submit" class="btn btn-primary">
-                        <i class="bi bi-search"></i>
-                    </button>
-                </div> 
-            </form>
-        <!-- Fin du formulaire de recherche produit -->
+                </form>
+                <!-- Fin du Formulaire de recherche produit -->
+
+            </div>
         </div>
     </div>
-   <!-- fin div recherche-form -->
 </div>
- <!-- fin content -->
-
-<!-- fin de la Barre de Recherche -->
-        
+<!-- Fin de la Barre de Recherche -->

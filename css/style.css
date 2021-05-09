@@ -1,5 +1,13 @@
 body { 
-    padding-top: 75px;
+    padding-top: 100px;
+
+}
+
+.fond-route{
+    background-color:black;
+    background-image: url(../img/fond-site_1.jpg);
+    background-size: cover;
+    background-repeat: no-repeat;
 }
 
 .padding-left-10{
@@ -18,3 +26,4 @@ body {
 .text-color-white{
     color: white;
 }
+  

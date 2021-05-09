@@ -4,6 +4,7 @@
 --On supprime les tables existantes
 ------------------------------------------
 drop table Voitures;
+drop table Marques;
 
 ------------------------------------------
 --On crée les tables et leurs contraintes 

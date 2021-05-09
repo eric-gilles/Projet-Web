@@ -9,10 +9,21 @@
  */
 
 ?>
-<div class="jumbotron rounded ">
+<div class="jumbotron rounded " style="background-image: url('./img/voiture-jumbotron.jpg')">
     <h1 class="display-4">FrancAuto des voitures 100% française</h1>
     <p>Trouve ta voiture patriote des maintenant :</p>
-    <button><a href="./produits.php" target="target">Rechercher</a></button>
-    <p>Déjà une idée contact un conseiller des maintenant :</p>
-    <button><a href="./contact.php" target="target">Contact</a></button>
+
+    <!-- appelle de rechercher -->
+<form method="POST" action="./produits.php">
+    <div class="input-group">
+        <div class="form-outline">
+            <input type="search" id="form1" class="form-control" placeholder="Rechercher une voiture" />
+
+        </div>
+        <button type="submit" class="btn btn-primary">
+        <i class="fas fa-search"></i>
+        </button>
+    </div>
+</form>
+ 
 </div>
