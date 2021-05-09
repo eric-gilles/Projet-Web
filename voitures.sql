@@ -42,18 +42,84 @@ insert into Voitures values(1,'FZ-208-DG','Citroën','Xantia','Rouge',177500,129
                             'Energie: Diesel' ||
                             'Puissance fiscale: 6 CV' ||
                             'Puissance din: 90 ch' ||
-                            'Boîte de vitesse: Mécanique');
-insert into Voitures values(2,'GF-056-VQ','Citroën','Evasion','Gris',162000,2800,,);
-insert into Voitures values(3,'GH-363-AC','Citroën','C1','Blanc',19909,8990,,);
-insert into Voitures values(4,'KB-164-HJ','Renault','Caravelle S','Rouge',7549,17200,,);
-insert into Voitures values(5,'KF-802-MT','Renault','Clio 3','Noire',87000,5495,,);
-insert into Voitures values(6,'HR-764-ZN','Renault','Kangoo 2','Blanc',51600,15490,,);
-insert into Voitures values(7,'HC-586-JX','Peugeot','806','Vert',117071,2499,,);
-insert into Voitures values(8,'SN-119-KH','Peugeot','508','Noire',48633,9950,,);
-insert into Voitures values(9,'TC-078-GQ','Peugeot','108','Argent',15,10600,,);
-insert into Voitures values(10,'S-670-HY','Bugatti','Veyron Grand Sport','Blanc',16254,959406,,);
-insert into Voitures values(11,'QE-794-LK','Bugatti','Type 35','Bleu',38476,37500,,);
-insert into Voitures values(12,'QD-751-VK','Bugatti','Type 46','Blanc',45252,730477,,);
+                            'Boîte de vitesse: Manuel');
+insert into Voitures values(2,'GF-056-VQ','Citroën','Evasion','Gris',162000,2800,1525,80,2002,5,
+                            'Il est confortable, se gare facilement grâce à sa visibilité, possède un grand coffre dans sa version 5 places.',
+                            'Carrosserie: Monospace' ||
+                            'Energie: Essence' ||
+                            'Puissance fiscale: 9 CV' ||
+                            'Puissance din: 120 ch' ||
+                            'Boîte de vitesse: Manuel');
+insert into Voitures values(3,'GH-363-AC','Citroën','C1','Blanc',19909,8990,865,35,2015,5,
+                            'Elle a pour clones la Peugeot 107 et la Toyota Aygo, avec lesquelles elle partage la totalité de la technique. La "triplette" ne se différencie que par des détails esthétiques sur la face avant ou la poupe. ',
+                            'Carrosserie: Citadine' ||
+                            'Energie: Essence' ||
+                            'Puissance fiscale: 4 CV' ||
+                            'Puissance din: 72' ||
+                            'Boîte de vitesse: Manuel');
+insert into Voitures values(4,'KB-164-HJ','Renault','Caravelle S','Rouge',7549,17200,800,38,1968,2,
+                            'Un des derniers cabriolets (Caravelle 1100 S) produits à partir de juillet 1965 permettant une utilisation quasi-quotidienne pendant les beaux jours, pour un exemplaire placé au niveau 3 de l’échelle de notation des véhicules de collection.',
+                            'Carrosserie: Cabriolet' ||
+                            'Energie: Essence' ||
+                            'Puissance fiscale: 6 CV' ||
+                            'Puissance din: 44 ch' ||
+                            'Boîte de vitesse: Manuel');
+insert into Voitures values(5,'KF-802-MT','Renault','Clio 3','Noire',87000,5495,1017,45,2015,5,
+                            'Après une deuxième génération de Clio qui a démontré tout le savoir-faire de Renault en terme de citadine polyvalente, cette troisième génération a enfoncé le clou. ',
+                            'Carrosserie: Berline' ||
+                            'Energie: Diesel' ||
+                            'Puissance fiscale: 5 CV' ||
+                            'Puissance din: 75 ch' ||
+                            'Boîte de vitesse: Manuel');
+insert into Voitures values(6,'HR-764-ZN','Renault','Kangoo 2','Blanc',51600,15490,1320,60,2015,5,
+                            'La deuxième génération de Kangoo s''est passablement affranchie de ses origines utilitaires. Elle est en effet plus prévenante avec ses passagers, plus confortable, mieux insonorisée et équipée',
+                            'Carrosserie: Monospace' ||
+                            'Energie: Diesel' ||
+                            'Puissance fiscale: 5 CV' ||
+                            'Puissance din: 90 ch' ||
+                            'Boîte de vitesse: Manuel');
+insert into Voitures values(7,'HC-586-JX','Peugeot','806','Vert',117071,2499,1525,80,1999,5,
+                            'Familiales hors normes et haut de gamme extravertis, les véhicules de type monospace ont littéralement révolutionné l''automobile.Le 806 s''est lui-même illustré comme un brillant acteur dans la genèse de cette catégorie à part.',
+                            'Carrosserie: Monospace' ||
+                            'Energie: Diesel' ||
+                            'Puissance fiscale: 9 CV' ||
+                            'Puissance din: 120 ch' ||
+                            'Boîte de vitesse: Manuel');
+insert into Voitures values(8,'SN-119-KH','Peugeot','508','Noire',48633,9950,1425,72,2016,5,
+                            'Qualité des matériaux, assemblages, présentation, tout respire le sérieux et rien n''a à rougir de la comparaison avec des concurrentes d''Outre-Rhin.',
+                            'Carrosserie: Berline' ||
+                            'Energie: Diesel' ||
+                            'Puissance fiscale: 6 CV' ||
+                            'Puissance din: 120 ch' ||
+                            'Boîte de vitesse: Automatique');
+insert into Voitures values(9,'TC-078-GQ','Peugeot','108','Argent',15,10600,860,35,2014,3,
+                            'La 108, c''est la version Peugeot de la triplette de mini-citadines que le constructeur a en commun avec Citroën (la C1) et Toyota (la Aygo).',
+                            'Carrosserie: Compacte' ||
+                            'Energie: Essence' ||
+                            'Puissance fiscale: 4 CV' ||
+                            'Puissance din: 72 ch' ||
+                            'Boîte de vitesse: Manuel');
+insert into Voitures values(10,'S-670-HY','Bugatti','Veyron Grand Sport','Blanc',16254,959406,1968,100,2009,2,
+                            'Les premiers exemplaires sont sortis d''usine le 19 avril 2005. En 2008, apparaît un modèle « Grand Sport ».  Chaque exemplaire porte une plaque avec son numéro de châssis.',
+                            'Carrosserie: Coupé' ||
+                            'Energie: Essence' ||
+                            'Puissance fiscale: 119 CV' ||
+                            'Puissance din: 1001 ch' ||
+                            'Boîte de vitesse: Automatique');
+insert into Voitures values(11,'QE-794-LK','Renault','Twingo','Violet',47538,5700,943,35,2017,3,
+                            'La Twingo a été la minicitadine star, et un best-seller de Renault pendant près de 20 ans.  Elle reste encore aujourd''hui, pour sa troisième génération, la meilleure vente de son segment en France.',
+                            'Carrosserie: Citadine' ||
+                            'Energie: Essence' ||
+                            'Puissance fiscale: 5 CV' ||
+                            'Puissance din: 69 ch' ||
+                            'Boîte de vitesse: Manuel');
+insert into Voitures values(12,'QD-751-VK','Citroën','Xsara','Argent',201626,995,1152,54,1998,5,
+                            'Dotée d''un bon confort et de qualités routières presque irréprochables, elle s''offre le plus souvent à des prix sans excès.',
+                            'Carrosserie: Berline' ||
+                            'Energie: Diesel' ||
+                            'Puissance fiscale: 6 CV' ||
+                            'Puissance din: 90 ch' ||
+                            'Boîte de vitesse: Manuel');
 
 insert into Marques values(1,'Citroën');
 insert into Marques values(2,'Renault');
