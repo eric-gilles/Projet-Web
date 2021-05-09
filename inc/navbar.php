@@ -26,8 +26,8 @@
     </ul>
     <!-- ALIGNER PANIER ET LE RESTE DE LA NAVBAR A FAIRE -->
 
-    <div class="my-2 my-lg-2">
-    <p class="text-white navbar-text navbar-right">Mon Panier</p>
+    <div class="my-2 my-lg-2 ">
+    <p class="nav-item text-white navbar-text navbar-right">Mon Panier</p>
     <div class="text-white navbar-right" style="display: inline;">
         <i class="fas fa-shopping-cart pl-0"></i>
     </div>
