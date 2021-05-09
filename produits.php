@@ -24,12 +24,9 @@ require_once './class/Voiture.php';
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.4.1/font/bootstrap-icons.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-
-      <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap">
-  <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb-pro.min.css">
-  <!-- Material Design Bootstrap Ecommerce -->
-  <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb.ecommerce.min.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap">
+  	<link rel="stylesheet" href="./css/mdb-pro.min.css">
+  	<link rel="stylesheet" href="./css/mdb.min.css">
 </head>
 <body>
 	<?php
@@ -49,8 +46,17 @@ require_once './class/Voiture.php';
 
 	?>
 	<br>
+	<aside></aside>
 	<div class="container">
 	 	<div class="row">
+	 		<div class="col-lg-3">
+	 			<h5>Marque</h5>
+	 			<hr>
+	 			<h6 class="text-info">Selectionner une marque</h6>
+	 			<ul class="list_group">
+	 				<?php  $sqlfilter = "SELECT ?>
+	 			</ul>
+	 		</div>
 
 		    <div class="col-sm">
 			<!-- 1ère Card Bootstrap -->
