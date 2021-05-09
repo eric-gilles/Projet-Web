@@ -32,20 +32,20 @@ CREATE TABLE Marques(
 ------------------------------------------
 --On insère des données
 ------------------------------------------
-insert into Voitures values(1,);
-insert into Voitures values(2,);
-insert into Voitures values(3,);
-insert into Voitures values(4,);
-insert into Voitures values(5,);
-insert into Voitures values(6,);
-insert into Voitures values(7,);
-insert into Voitures values(8,);
-insert into Voitures values(9,);
-insert into Voitures values(10,);
-insert into Voitures values(11,);
-insert into Voitures values(12,);
+insert into Voitures values(1,'FZ-208-DG','Citroën','Xantia','Rouge',177500,1290);
+insert into Voitures values(2,'GF-056-VQ','Citroën','Evasion','Gris',162000,2800);
+insert into Voitures values(3,'GH-363-AC','Citroën','C1','Blanc',19909,8990);
+insert into Voitures values(4,'KB-164-HJ','Renault','Caravelle S','Rouge',7549,17200);
+insert into Voitures values(5,'KF-802-MT','Renault','Clio 3','Noire',87000,5495);
+insert into Voitures values(6,'HR-764-ZN','Renault','Kangoo 2','Blanc',51600,15490);
+insert into Voitures values(7,'HC-586-JX','Peugeot','806','Vert',117071,2499);
+insert into Voitures values(8,'SN-119-KH','Peugeot','508','Noire',48633,9950);
+insert into Voitures values(9,'TC-078-GQ','Peugeot','108','Argent',15,10600);
+insert into Voitures values(10,'S-670-HY','Bugatti','Veyron Grand Sport','Blanc',16254,959406);
+insert into Voitures values(11,'QE-794-LK','Bugatti','Type 35','Bleu',38476,37500);
+insert into Voitures values(12,'QD-751-VK','Bugatti','Type 46','Blanc',45252,730477);
 
-insert into Marques values(1,);
-insert into Marques values(1,);
-insert into Marques values(1,);
-insert into Marques values(1,);
+insert into Marques values(1,Citroën);
+insert into Marques values(2,Renault);
+insert into Marques values(3,Peugeot);
+insert into Marques values(4,Bugatti);
