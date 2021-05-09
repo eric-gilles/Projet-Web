@@ -55,7 +55,7 @@ insert into Voitures values(10,'S-670-HY','Bugatti','Veyron Grand Sport','Blanc'
 insert into Voitures values(11,'QE-794-LK','Bugatti','Type 35','Bleu',38476,37500,,);
 insert into Voitures values(12,'QD-751-VK','Bugatti','Type 46','Blanc',45252,730477,,);
 
-insert into Marques values(1,Citroën);
-insert into Marques values(2,Renault);
-insert into Marques values(3,Peugeot);
-insert into Marques values(4,Bugatti);
+insert into Marques values(1,'Citroën');
+insert into Marques values(2,'Renault');
+insert into Marques values(3,'Peugeot');
+insert into Marques values(4,'Bugatti');
