@@ -18,13 +18,9 @@
 	<link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-
-
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap">
-  <!-- Material Design Bootstrap -->
-  <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb-pro.min.css">
-  <!-- Material Design Bootstrap Ecommerce -->
-  <link rel="stylesheet" href="https://mdbootstrap.com/previews/ecommerce-demo/css/mdb.ecommerce.min.css">
+    <link rel="stylesheet" href="./css/mdb-pro.min.css">
+    <link rel="stylesheet" href="./css/mdb.min.css">
 </head>
 <body class="skin-light">
     <!--Navbar and jumbotron-->

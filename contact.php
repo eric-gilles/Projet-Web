@@ -29,40 +29,42 @@
         require_once './inc/navbar.php';
     ?>
     <!-- Fin affichage NavBar -->
-    <h2 class='padding-left-10'> Nos information de Contact :</h2>
-    <ul>
-        <ol>Par téléphone : 06 06 06 06 06 06</ol>
-        <ol>Par mail : <a href="mailto:contact@francauto.fr">contact@francauto.fr</a></ol>
-
-        <ol>Ou directement en agence à  l'adresse : 
-            <ul>
-                <li>66 avenue des enfer</li>
-                <li> 7777 Le tartarosse </li>
-            </ul>
+    <div class="container">
+        <div class="row pt-5">
+            <div class="col">
+        <h2 class='padding-left-10'>Nos informations de Contact :</h2>
+        <ul>
+            <ol>Par téléphone : 06 06 06 06 06 06</ol>
+            <ol>Par mail : <a href="mailto:contact@francauto.fr">contact@francauto.fr</a></ol>
+            <ol>Ou directement en agence à  l'adresse : 
+                <ul>
+                    <li>66 avenue des enfer</li>
+                    <li>7777 Le tartarosse</li>
+                </ul>  
+            </ol>
+        </ul>
+    </div>
+    <div class="col">
+        <h2 class='padding-left-10'>Ou contacte nous directement :</h2>
+        <form class="padding-left-30" method="post">
+            <input type="email" name="email" required placeholder="exemple@gmail.com"><br>
+            <textarea rows="10" cols="50" name="message" placeholder="Votre message ici"></textarea><br>
+            <input type="submit" value="Envoyer"/>
             
-        </ol>
-    </ul>
-    
-
-    <h2 class='padding-left-10'>Ou contacte nous directement :<h2>
-    <form class="padding-left-30" method="post">
-        <input type="email" name="email" required placeholder="exemple@gmail.com"><br>
-        <textarea rows="10" cols="50" name="message" placeholder="Votre message ici"></textarea><br>
-        <input type="submit" value="Envoyer" />
-        
-    </form>
-    
+        </form>
+    </div>
+    </div>
     <?php
     if (isset($_POST['message'])) {
         $position_arobase = strpos($_POST['email'], '@');
         if ($position_arobase === false)
-            echo '<p>Votre email doit comporter un arobase.</p>';
+            echo '<p>Votre email doit comporter une arobase.</p>';
         else {
             $retour = mail('contact@francauto.fr', 'Envoi depuis la page Contact', $_POST['message'], 'From: ' . $_POST['email']);
             if($retour)
-                echo '<p>Votre message a bien été envoyer nous vous répondron dans les plus brefs delais</p>';
+                echo '<p>Votre message a bien été envoyé, nous vous répondrons dans les plus brefs délais.</p>';
             else
-                echo "<p>Erreur lors de l'envoi de votre message </p>";
+                echo "<p>Erreur lors de l'envoi de votre message</p>";
         }
     }
     ?>
