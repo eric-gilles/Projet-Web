@@ -14,7 +14,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
     <title>Accueil</title>
-
+    <link rel="icon" type="image/jpeg" href="./img/logo.jpeg" />
     <!-- Bootstrap & CSS -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -32,7 +32,7 @@
     <!-- Fin jumbotron+bar de naviguation -->
     
     
-
+    <div style="padding: 50px;"></div>
         
         <!-- Petit résumé -->
         <h1>Qui sommes nous ?</h1>
@@ -43,7 +43,7 @@
             pour que celui-ci vous aide dans vos recherche.
         </p>    
 
-    
+    <div style="padding: 50px;"></div>
         <!-- Carroussel marque -->
 
 
@@ -101,9 +101,16 @@
               <span class="sr-only">Suivant</span>
             </a>
         </div>
-
-
-
+      <div style="padding: 50px;"></div>
+      <!-- petit texte -->
+      <h1>Une execelence garantie</h1>
+        <p>Nous nous engageons à vous fournir le vehicule de vos rêve dans un état proche du neuf.
+            Peur que votre nouvelle voiture arrête de fonctionner, pas d'inquiètude tout nos produits sont
+            garantient au moins un ans. Pas satisfait de votre vehicule acheter chez nous profiter du renvoie gratuit
+            sous 14 jours. Alors vous attendez quoi pour acheter Français sur Francauto. 
+        </p>   
+      
+        <div style="padding: 50px;"></div>
 
         
     

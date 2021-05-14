@@ -3,7 +3,7 @@
 /** 
  * /produit.php
  * Page qui liste tous les produits
- * @author E.Gilles & L.Boullee AS Web Voiture
+ * @author E.Gilles & L.Boullee & Adrien CerroAS Web Voiture
  * @date 04/2021
  */
 
