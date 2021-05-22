@@ -27,8 +27,9 @@ CREATE TABLE Voitures(
 	reservoir INT NOT NULL,
 	annee INT NOT NULL,
 	nombrePortes INT NOT NULL,
-    description1 VARCHAR NOT NULL,
+       description1 VARCHAR NOT NULL,
 	description2 VARCHAR NOT NULL,
+       description3 VARCHAR NOT NULL,
 	constraint pk_voitures primary key(id),
 	constraint fk_voitures foreign key(marque) REFERENCES Marques(marque)
 );
@@ -37,7 +38,7 @@ CREATE TABLE Voitures(
 --On insère des données
 ------------------------------------------
 insert into Voitures values(1,'FZ-208-DG','Citroën','Xantia','Rouge',177500,1290,1361,65,2002,5,
-                            'Certes, elle n''est plus produite depuis déjà un bon nombre d''année. Mais la qualité de sa conception était telle qu''elle permet encore aujourd''hui de disposer d''un modèle techniquement à la page et, concrètement, encore très valable dans les prestations qu''il offre.',
+                            'Certes, elle n''est plus produite depuis déjà un bon nombre d''années. Mais la qualité de sa conception était telle qu''elle permet encore aujourd''hui de disposer d''un modèle techniquement à la page et, concrètement, encore très valable dans les prestations qu''il offre.',
                             'Carrosserie: Berline' ||
                             'Energie: Diesel' ||
                             'Puissance fiscale: 6 CV' ||
@@ -51,7 +52,7 @@ insert into Voitures values(2,'GF-056-VQ','Citroën','Evasion','Gris',162000,280
                             'Puissance din: 120 ch' ||
                             'Boîte de vitesse: Manuel');
 insert into Voitures values(3,'GH-363-AC','Citroën','C1','Blanc',19909,8990,865,35,2015,5,
-                            'Elle a pour clones la Peugeot 107 et la Toyota Aygo, avec lesquelles elle partage la totalité de la technique. La "triplette" ne se différencie que par des détails esthétiques sur la face avant ou la poupe. ',
+                            'Elle a pour clone la Peugeot 107 et la Toyota Aygo, avec lesquelles elle partage la totalité de la technique. La "triplette" ne se différencie que par des détails esthétiques sur la face avant ou la poupe.',
                             'Carrosserie: Citadine' ||
                             'Energie: Essence' ||
                             'Puissance fiscale: 4 CV' ||
@@ -65,21 +66,21 @@ insert into Voitures values(4,'KB-164-HJ','Renault','Caravelle S','Rouge',7549,1
                             'Puissance din: 44 ch' ||
                             'Boîte de vitesse: Manuel');
 insert into Voitures values(5,'KF-802-MT','Renault','Clio 3','Noire',87000,5495,1017,45,2015,5,
-                            'Après une deuxième génération de Clio qui a démontré tout le savoir-faire de Renault en terme de citadine polyvalente, cette troisième génération a enfoncé le clou. ',
+                            'Après une deuxième génération de Clio qui a démontré tout le savoir-faire de Renault en terme de citadine polyvalente, cette troisième génération a enfoncé le clou.',
                             'Carrosserie: Berline' ||
                             'Energie: Diesel' ||
                             'Puissance fiscale: 5 CV' ||
                             'Puissance din: 75 ch' ||
                             'Boîte de vitesse: Manuel');
 insert into Voitures values(6,'HR-764-ZN','Renault','Kangoo 2','Blanc',51600,15490,1320,60,2015,5,
-                            'La deuxième génération de Kangoo s''est passablement affranchie de ses origines utilitaires. Elle est en effet plus prévenante avec ses passagers, plus confortable, mieux insonorisée et équipée',
+                            'La deuxième génération de Kangoo s''est passablement affranchie de ses origines utilitaires. Elle est, en effet, plus prévenante avec ses passagers, plus confortable, mieux insonorisée et équipée.',
                             'Carrosserie: Monospace' ||
                             'Energie: Diesel' ||
                             'Puissance fiscale: 5 CV' ||
                             'Puissance din: 90 ch' ||
                             'Boîte de vitesse: Manuel');
 insert into Voitures values(7,'HC-586-JX','Peugeot','806','Vert',117071,2499,1525,80,1999,5,
-                            'Familiales hors normes et haut de gamme extravertis, les véhicules de type monospace ont littéralement révolutionné l''automobile.Le 806 s''est lui-même illustré comme un brillant acteur dans la genèse de cette catégorie à part.',
+                            'Familiales hors normes et haut de gamme extravertis, les véhicules de type monospace ont littéralement révolutionné l''automobile. Le 806 s''est lui-même illustré comme un brillant acteur dans la genèse de cette catégorie à part.',
                             'Carrosserie: Monospace' ||
                             'Energie: Diesel' ||
                             'Puissance fiscale: 9 CV' ||
@@ -100,14 +101,14 @@ insert into Voitures values(9,'TC-078-GQ','Peugeot','108','Argent',15,10600,860,
                             'Puissance din: 72 ch' ||
                             'Boîte de vitesse: Manuel');
 insert into Voitures values(10,'S-670-HY','Bugatti','Veyron Grand Sport','Blanc',16254,959406,1968,100,2009,2,
-                            'Les premiers exemplaires sont sortis d''usine le 19 avril 2005. En 2008, apparaît un modèle « Grand Sport ».  Chaque exemplaire porte une plaque avec son numéro de châssis.',
+                            'Les premiers exemplaires sont sortis d''usine le 19 avril 2005. En 2008, apparaît un modèle « Grand Sport ». Chaque exemplaire porte une plaque avec son numéro de châssis.',
                             'Carrosserie: Coupé' ||
                             'Energie: Essence' ||
                             'Puissance fiscale: 119 CV' ||
                             'Puissance din: 1001 ch' ||
                             'Boîte de vitesse: Automatique');
 insert into Voitures values(11,'QE-794-LK','Renault','Twingo','Violet',47538,5700,943,35,2017,3,
-                            'La Twingo a été la minicitadine star, et un best-seller de Renault pendant près de 20 ans.  Elle reste encore aujourd''hui, pour sa troisième génération, la meilleure vente de son segment en France.',
+                            'La Twingo a été la mini-citadine star, et un best-seller de Renault pendant près de 20 ans. Elle reste encore aujourd''hui, pour sa troisième génération, la meilleure vente de son segment en France.',
                             'Carrosserie: Citadine' ||
                             'Energie: Essence' ||
                             'Puissance fiscale: 5 CV' ||

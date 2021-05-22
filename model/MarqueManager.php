@@ -4,7 +4,7 @@
  * Définition de la class RoleManager
  * Class qui gère les interactions entre les rôles de l'application et les rôles de la bdd
  *
- * @author E.Gilles
+ * @author E. Gilles & L. Boullee & A. Cerro
  * @date: 04/2021
  */
 // inclus les fichiers
@@ -30,7 +30,7 @@ class MarqueManager {
     {
         try{
             self::$cnx = DbManager::getConnection();
-            $sql = "SELECT DISTINCT marque";
+            $sql = "SELECT id, marque";
             $sql .= " FROM Marques";
             $sql .= " ORDER BY marque;";
             //var_dump($sql);

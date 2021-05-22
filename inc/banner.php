@@ -4,7 +4,7 @@
  * Bannière avec le logo
  * Fichier à appeler au début de la page des produits
  * Code à utiliser : "require_once './inc/banner.php';"
- * @author : AS Web Voiture
+ * @author : E. Gilles & L. Boullee & A. Cerro
  * @date : 04/2021
 */
 ?>

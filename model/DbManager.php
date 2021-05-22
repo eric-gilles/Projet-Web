@@ -4,7 +4,7 @@
 * Description de la class DbManager
 * Class qui implémente toutes les fonctions d'accès à la base de données
 *
-* @author E.Gilles & L.Boullee
+* @author E. Gilles & L. Boullee & A. Cerro
 */
 class DbManager
 {

@@ -3,7 +3,7 @@
  * /model/Voiture.php
  * Définition de la class Voiture
  * 
- * @author E.Gilles & L.Boullee
+ * @author E. Gilles & L. Boullee & A. Cerro
  * @date 04/2021
  */
 // inclus les fichiers
@@ -18,19 +18,29 @@ class Voiture
      * - ils sont en visibilité private pour respecter le principe d'encapsulation
      * - le typage des attributs n'est valable que les versions les plus récentes de PHP
      */
+	private $id;
 	private $immatriculation;
 	private $marque;
 	private $modele;
 	private $couleur;
 	private $kilometrage;
 	private $prix;
+	private $poids;
+	private $reservoir;
+	private $annee;
+	private $nombrePortes;
 	private $description1;
 	private $description2;
+	private $description3;
 
+	/*
+     * Constructeur: 1 seul constructeur en PHP
+     */
     public function __construct()
     {
         
     }
+
     /*
      * Accesseurs : méthodes permettant d'avoir accès aux valeurs des attributs des objets (car les attributs sont privés)
      * - get... permet d'obtenir (récupérer) la valeur de l'attribut
@@ -41,7 +51,13 @@ class Voiture
      */
 
 	//GETTER
-
+    /**
+     * @return type
+     */
+    public function getIdVoiture()
+    {
+        return $this->id;
+    }
 	/**
 	 * @return $immatriculation
 	 */
@@ -91,6 +107,38 @@ class Voiture
 	}
 
 	/**
+	 * @return $poids
+	 */
+	public function getPoids()
+	{
+	    return $this->poids;
+	}
+
+	/**
+	 * @return $reservoir
+	 */
+	public function getReservoir()
+	{
+	    return $this->reservoir;
+	}
+
+	/**
+	 * @return $annee
+	 */
+	public function getAnnee()
+	{
+	    return $this->annee;
+	}
+
+	/**
+	 * @return $nombrePortes
+	 */
+	public function getNombrePortes()
+	{
+	    return $this->nombrePortes;
+	}
+
+	/**
 	 * @return $description1
 	 */
 	public function getDescription1()
@@ -106,7 +154,23 @@ class Voiture
 	    return $this->description2;
 	}
 	
+	/**
+	 * @return $description3
+	 */
+	public function getDescription3()
+	{
+	    return $this->description3;
+	}
+
 	//SETTER
+	/**
+	 * @param $id
+	 */
+	public function setIdVoiture($id)
+	{
+	    $this->id = $id;
+	}
+
 	/**
 	 * @param $immatriculation
 	 */
@@ -131,6 +195,7 @@ class Voiture
 	public function setModele($modele)
 	{
 	    $this->modele = $modele;
+
 	}
 
 	/**
@@ -158,6 +223,39 @@ class Voiture
 	}
 
 	/**
+	 * @param type $poids
+	 */
+	public function setPoids($poids)
+	{
+	    $this->poids = $poids;
+	}
+
+	/**
+	 * @param type $reservoir
+	 */
+	public function setReservoir($reservoir)
+	{
+	    $this->reservoir = $reservoir;
+	}
+
+	/**
+	 * @param type $annee
+	 */
+	public function setAnnee($annee)
+	{
+	    $this->annee = $annee;
+	}
+
+	/**
+	 * @param type $nombrePortes
+	 */
+	public function setNombrePortes($nombrePortes)
+	{
+	    $this->nombrePortes = $nombrePortes;
+	    return $this;
+	}
+
+	/**
 	 * @param $description1
 	 */
 	public function setDescription1($description1)
@@ -174,16 +272,13 @@ class Voiture
 	}
 	
 	/**
-     * Teste le nombre de caractères de la plaque d'immatriculation
-     * @return boolean
-     */
-    public function isValide(): bool{
-        $nbCaracteresImmat = strlen($this->immatriculation);
-        if($nbCaracteresImmat >= 9)
-            return true;
-        else
-            return false;
-    }
+	 * @param $description3
+	 */
+	public function setDescription3($description2)
+	{
+	    $this->description3 = $description3;
+	}
+
 }
 
 

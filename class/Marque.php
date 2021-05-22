@@ -3,7 +3,7 @@
  * /model/Marque.php
  * Définition de la class Marque
  * 
- * @author E.Gilles & L.Boullee
+ * @author E. Gilles & L. Boullee & A. Cerro
  * @date 05/2021
  */
 // inclus les fichiers
@@ -18,8 +18,12 @@ class Marque
      * - ils sont en visibilité private pour respecter le principe d'encapsulation
      * - le typage des attributs n'est valable que les versions les plus récentes de PHP
      */
+	private $id;
 	private $marque;
 
+	/*
+     * Constructeur: 1 seul constructeur en PHP
+     */
     public function __construct()
     {
         
@@ -34,7 +38,14 @@ class Marque
      */
 
 	//GETTER
-
+	
+    /**
+     * @return $id
+     */
+    public function getId()
+    {
+        return $this->id;
+    }
 	/**
 	 * @return $marque
 	 */
@@ -42,7 +53,18 @@ class Marque
 	{
 	    return $this->marque;
 	}
-	
+
+	//SETTER
+
+	/**
+	 * @param $id
+	 */
+	public function setId($id)
+	{
+	    $this->id = $id;
+	    return $this;
+	}
+
 	/**
 	 * @param $marque
 	 */

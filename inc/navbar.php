@@ -15,23 +15,20 @@
     </a>
     <ul class="navbar-nav mr-auto mt-2 mt-lg-0">
         <li class="nav-item">
-            <a style="color: #005cbf;" class="nav-link"  href="./index.php">Accueil</a>
+            <a class="nav-link text-primary"  href="./index.php">Accueil</a>
         </li>
         <li class="nav-item">
-            <a style="color:white;" class="nav-link" href="./produits.php">Les produits</a>
+            <a class="nav-link text-light" href="./produits.php">Les produits</a>
         </li>
         <li class="nav-item"> 
-            <a style="color: #bd2130;"class="nav-link" href="./contact.php">Nous Contacter</a>
+            <a class="nav-link text-danger" href="./contact.php">Nous Contacter</a>
         </li>
     </ul>
-    <!-- ALIGNER PANIER ET LE RESTE DE LA NAVBAR A FAIRE -->
 
-    <div class="my-2 my-lg-2 ">
-    <p class="nav-item text-white navbar-text navbar-right">Mon Panier</p>
+    <a class="nav-item text-light nav-link navbar-right" href="#">Mon Panier</a>
     <div class="text-white navbar-right" style="display: inline;">
-        <i class="fas fa-shopping-cart pl-0"></i>
+        <i class="fas fa-shopping-cart"></i>
     </div>
-</div>
     
 </nav>
 <!-- Fin barre de navigation avec logo -->

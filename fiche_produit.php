@@ -3,24 +3,27 @@
 /** 
  * fiche_produit.php
  * Page detaillé de chaque produit
- * @author E.Gilles & L.Boullee
+ * @author E. Gilles & L. Boullee & A. Cerro
  * @date 04/2021
  */
-?><!DOCTYPE html>
+?>
+<!DOCTYPE html>
 <html lang="fr">
 <head>
 	<meta charset="UTF-8">
-	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0 shrink-to-fit=no">
+    <meta name="description" content="Site de vente de Voitures d'occasions">
+    <meta name="author" content="AS Web">
 
-	<title>Accueil</title>
+	<title>Document</title>
 
 	<!-- Bootstrap & CSS -->
 	<link rel="stylesheet" href="./css/style.css">
-    <link rel="stylesheet" href="./css/bootstrap.min.css">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
-    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap">
-    <link rel="stylesheet" href="./css/mdb-pro.min.css">
-    <link rel="stylesheet" href="./css/mdb.min.css">
+	<link rel="stylesheet" href="./css/bootstrap.min.css">
+  	<link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.11.2/css/all.css">
+ 	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:100,300,400,500,700&display=swap">
+	<link rel="stylesheet" href="./css/mdb-pro.min.css">
+	<link rel="stylesheet" href="./css/mdb.min.css">
 </head>
 <body class="skin-light">
     <!--Navbar and jumbotron-->
@@ -33,148 +36,152 @@
                 </div>
             </div>
         </div>
-  </header>
-  <!--Navbar and jumbotron-->
+	</header>
+	<!--Navbar and jumbotron-->
 
-  <!--Main Body-->
-  <main>
-    <div class="container">
+	<!--Main Body-->
+	<main>
+	<div class="container">
 
-      <!--Section: Images & Info Achat-->
-      <section class="mb-5">
+	<!--Section: Images & Info Achat-->
+	<section class="mb-5">
 
-        <div class="row">
-          <div class="col-md-6 mb-4 mb-md-0">
+		<div class="row">
+			<div class="col-md-6 mb-4 mb-md-0">
 
-            <div id="mdb-lightbox-ui"></div>
+				<div id="mdb-lightbox-ui"></div>
 
-            <div class="mdb-lightbox">
+				<div class="mdb-lightbox">
 
-              <div class="row product-gallery mx-1">
+					<div class="row product-gallery mx-1">
 
-                <div class="col-12 mb-0">
-                  <div class="view rounded z-depth-1 main-img">
-                    <a href="./img/imgtest.png" data-size="710x823">
-                      <img src="./img/imgtest.png" style="margin-top: -90px"  width="550" height="400";>
-                    </a>
-                  </div>
-                </div>
-                <div class="col-12">
-                  <div class="row">
-                    <div class="col-3">
-                      <div class="view rounded z-depth-1 gallery-item hoverable">
-                        <img src="./img/imgtest1.jpg" class="img-fluid">
-                        <div class="mask rgba-white-slight"></div>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="view rounded z-depth-1 gallery-item hoverable">
-                        <img src="./img/imgtest.png" class="img-fluid">
-                        <div class="mask rgba-white-slight"></div>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="view rounded z-depth-1 gallery-item hoverable">
-                        <img src="./img/imgtest.png" class="img-fluid">
-                        <div class="mask rgba-white-slight"></div>
-                      </div>
-                    </div>
-                    <div class="col-3">
-                      <div class="view rounded z-depth-1 gallery-item hoverable">
-                        <img src="./img/imgtest.png" class="img-fluid">
-                        <div class="mask rgba-white-slight"></div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-
+						<div class="col-12 mb-0">
+							<div class="view rounded z-depth-1 main-img">
+			                    <a href="./img/imgtest.png" data-size="710x823">
+			                    	<img src="./img/imgtest.png" style="margin-top: -90px"  width="550" height="400";>
+			                    </a>
+                  			</div>
+                		</div>
+	                	<div class="col-12">
+	                  		<div class="row">
+	                    		<div class="col-3">
+	                      			<div class="view rounded z-depth-1 gallery-item hoverable">
+	                        			<img src="./img/imgtest1.jpg" class="img-fluid">
+	                        			<div class="mask rgba-white-slight"></div>
+	                      			</div>
+	                    		</div>
+			                    <div class="col-3">
+			                    	<div class="view rounded z-depth-1 gallery-item hoverable">
+			                        	<img src="./img/imgtest.png" class="img-fluid">
+			                        	<div class="mask rgba-white-slight"></div>
+			                      	</div>
+			                    </div>
+			                    <div class="col-3">
+			                    	<div class="view rounded z-depth-1 gallery-item hoverable">
+			                        	<img src="./img/imgtest.png" class="img-fluid">
+			                        	<div class="mask rgba-white-slight"></div>
+			                      	</div>
+			                    </div>
+			                    <div class="col-3">
+			                    	<div class="view rounded z-depth-1 gallery-item hoverable">
+			                        	<img src="./img/imgtest.png" class="img-fluid">
+			                        	<div class="mask rgba-white-slight"></div>
+			                      	</div>
+                    			</div>
+                			</div>
+            			</div>
+        			</div>
+   				</div>
           </div>
           <div class="col-md-6">
 
-            <h5>Renault Clio</h5>
-            <p class="mb-2 text-muted text-uppercase small">Citadine</p>
-            <p><span class="mr-1"><strong>8790 €</strong></span></p>
+			<h5>Renault Clio</h5>
+			<p class="mb-2 text-muted text-uppercase small">Citadine</p>
+			<p><span class="mr-1"><strong>8790 €</strong></span></p>
             <p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
               error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
               officia quis dolore quos sapiente tempore alias.</p>
             <div class="table-responsive">
-              <table class="table table-sm table-borderless mb-0">
-                <tbody>
-                  <tr>
-                    <th class="pl-0 w-25" scope="row"><strong>Modèle</strong></th>
-                    <td>Renault Clio</td>
-                  </tr>
-                  <tr>
-                    <th class="pl-0 w-25" scope="row"><strong>Couleur</strong></th>
-                    <td>Bleu</td>
-                  </tr>
-                  <tr>
-                    <th class="pl-0 w-25" scope="row"><strong>Localisation</strong></th>
-                    <td>Montpellier, France</td>
-                  </tr>
-                </tbody>
-              </table>
+				<table class="table table-sm table-borderless mb-0">
+                	<tbody>
+                		<tr>
+                    		<th class="pl-0 w-25" scope="row"><strong>Modèle</strong></th>
+                    		<td>Renault Clio</td>
+                  		</tr>
+		                <tr>
+		                	<th class="pl-0 w-25" scope="row"><strong>Couleur</strong></th>
+		                	<td>Bleu</td>
+		                </tr>
+		                <tr>
+		                	<th class="pl-0 w-25" scope="row"><strong>Localisation</strong></th>
+		                	<td>Montpellier, France</td>
+		                </tr>
+                	</tbody>
+              	</table>
             </div>
             <hr>
             <button type="button" class="btn btn-large btn-primary mr-1 mb-2">Acheter maintenant</button>
             <button type="button" class="btn btn-large btn-light mr-1 mb-2"><i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier</button>
-          </div>
         </div>
-
-      </section>
-      <!--Section: Images & Info Achat-->
-
-      <!-- Informations -->
-      <div class="classic-tabs">
-
-        <ul class="nav tabs-primary nav-justified" id="advancedTab" role="tablist">
-          <li class="nav-item">
-            <a class="nav-link active show" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Informations</a>
-          </li>
-        </ul>
-        <div class="tab-content" id="advancedTabContent">
-          <div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-            <h5>Product Description</h5>
-            <p class="small text-muted text-uppercase mb-2">Citadine</p>
-            <h6>8790 €</h6>
-            <p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
-              error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
-              officia quis dolore quos sapiente tempore alias.</p>
-          </div>
-          <div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
-            <h5>Informations Supplémentaires</h5>
-            <table class="table table-striped table-bordered mt-3">
-              <thead>
-                <tr>
-                  <th scope="row" class="w-150 dark-grey-text h6">Poids</th>
-                  <td><em>1.240 kg</em></td>
-                </tr>
-              </thead>
-              <tbody>
-                <tr>
-                  <th scope="row" class="w-150 dark-grey-text h6">Dimensions</th>
-                  <td><em>4.05 × 1.79 x 1.44 m</em></td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-            </div>
-          </div>
-        </div>
-
-      </div>
-      <!-- Informations -->
     </div>
-  </main>
-  <!--Main Body-->
 
-    
+    </section>
+    <!--Section: Images & Info Achat-->
+
+    <!-- Informations -->
+    <div class="classic-tabs">
+
+    	<ul class="nav tabs-primary nav-justified" id="advancedTab" role="tablist">
+        	<li class="nav-item">
+            	<a class="nav-link active show" id="description-tab" data-toggle="tab" href="#description" role="tab" aria-controls="description" aria-selected="true">Description</a>
+          	</li>
+	        <li class="nav-item">
+	        	<a class="nav-link" id="info-tab" data-toggle="tab" href="#info" role="tab" aria-controls="info" aria-selected="false">Informations</a>
+	        </li>
+        </ul>
+
+        <div class="tab-content" id="advancedTabContent">
+        	<div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
+            	<h5>Product Description</h5>
+            	<p class="small text-muted text-uppercase mb-2">Citadine</p>
+            	<h6>8790 €</h6>
+            	<p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
+              	error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
+              	officia quis dolore quos sapiente tempore alias.</p>
+          	</div>
+          	<div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
+            	<h5>Informations Supplémentaires</h5>
+            	<table class="table table-striped table-bordered mt-3">
+              		<thead>
+                		<tr>
+		                	<th scope="row" class="w-150 dark-grey-text h6">Poids</th>
+		                	<td><em>1.240 kg</em></td>
+                		</tr>
+              		</thead>
+              		<tbody>
+		            	<tr>
+		                	<th scope="row" class="w-150 dark-grey-text h6">Dimensions</th>
+		                	<td><em>4.05 × 1.79 x 1.44 m</em></td>
+		                </tr>
+              		</tbody>
+            	</table>
+          	</div>
+        </div>
+    </div>
+    </div>
+	<!-- Informations -->
+
+	</main>
+	<!--Main Body-->
+	
+	<div style="padding: 50px;"></div>
+
+    <!-- Affichage du footer -->
+    <?php
+        //Affichage de ./footer.php
+        require_once './inc/footer.php';
+    ?>
+    <!-- Fin d'affichage du footer -->
     
     <!-- Chargement Script -->
     <!-- jQuery first, then Popper.js, then Bootstrap JS -->

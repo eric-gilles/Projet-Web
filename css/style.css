@@ -1,12 +1,6 @@
 body { 
     padding-top: 100px;
-    
-    
-
 }
-
-
-
 
 .carousel-marque{
     width: 40%;
@@ -21,8 +15,6 @@ body {
     padding-left: 30px;
 }
 
-
-
 .background-color-grey{
     background-color: whitesmoke;
 }
@@ -36,8 +28,9 @@ body {
 }
 
 .jumbotron-background{
+    height: 500px;
     background-image: url(../img/voiture-jumbotron.jpg);
     background-position: center;
-    background-size: cover ;
+    background-size: auto;
     background-repeat: no-repeat;
 }

@@ -4,7 +4,7 @@
  * Bas de page contenant des information importante à mettre à la fin de toute les pages
  * code : require_once 'inc/footer.php';
  * 
- * @author Lilian Boullée
+ * @author  E.Gilles & L.Boullee & Adrien Cerro
  * @date 05/2021
  */
 
@@ -18,7 +18,7 @@
     <!--Grid row-->
     <div class="row">
       <!--Petit résumé de l'entreprise-->
-      <div class="col-lg-6 col-md-12 mb-4 mb-md-0">
+      <div class="col-lg-4 col-md-12 mb-4 mb-md-0">
           <img src="./img/logo.jpeg" alt="alt"/>
 
         
@@ -26,7 +26,7 @@
       <!-- Fin résumé-->
 
       <!--Réseaux sociaux-->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0">
+      <div class="col-lg-4 col-md-6 mb-4 mb-md-0">
         <h5 style="color:white;" class="text-uppercase">Suivez-nous :</h5>
         <br>  
         <a href="http://facebook.com"> 
@@ -45,7 +45,7 @@
       <!--Fin réseaux sociaux-->
 
       <!--Contact-->
-      <div class="col-lg-3 col-md-6 mb-4 mb-md-0" style="color: #bd2130;">
+      <div class="col-lg-4 col-md-6 mb-4 mb-md-0" style="color: #bd2130;">
         <h5 style="color: #bd2130;" class="text-uppercase mb-0">Contacter nous :</h5>
         <br>
         <ul class="list-unstyled">
@@ -62,7 +62,7 @@
           </li>
           <br>
           <li>
-            <a href="./contact.php" style="color: #bd2130;">Sur notre site</a>
+            <a href="./index.php" style="color: #bd2130;">Sur notre site</a>
           </li>
         </ul>
       </div>
