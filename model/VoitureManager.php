@@ -29,27 +29,27 @@ class VoitureManager
     public static function getallVoitures(){
         try {
             self::$cnx = DbManager::getConnection();
-            $sql ='select id, immatriculation, marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3';
-            $sql.= ' from voiture';
+            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3';
+            $sql.= ' from voitures';
             //var_dump($sql);
             $result = self::$cnx->query($sql);
             $result->setFetchMode(PDO::FETCH_OBJ);
-            self::$uneVoiture = new Voiture();
-            self::$uneVoiture->setIdVoiture($result->id);
-            self::$uneVoiture->setImmatriculation($result->immatriculation);
-            self::$uneVoiture->setMarque($result->marque);
-            self::$uneVoiture->setModele($result->modele);
-            self::$uneVoiture->setCouleur($result->couleur);
-            self::$uneVoiture->setKilometrage($result->kilometrage);
-            self::$uneVoiture->setPrix($result->prix);
-            self::$uneVoiture->setPoids($result->poids);
-            self::$uneVoiture->setReservoir($result->reservoir);
-            self::$uneVoiture->setAnnee($result->annee);
-            self::$uneVoiture->setNombrePortes($result->nombrePortes);
-            self::$uneVoiture->setDescription1($result->description1);
-            self::$uneVoiture->setDescription2($result->description2);
-            self::$uneVoiture->setDescription3($result->description3);
-            while (self::$uneVoiture = $pdo->fetch()) {
+            while (self::$uneVoiture = $result->fetch()) {
+                self::$uneVoiture = new Voiture();
+                self::$uneVoiture->setIdVoiture($result->id);
+                self::$uneVoiture->setImmatriculation($result->immatriculation);
+                self::$uneVoiture->setIdMarque($result->id_marque);
+                self::$uneVoiture->setModele($result->modele);
+                self::$uneVoiture->setCouleur($result->couleur);
+                self::$uneVoiture->setKilometrage($result->kilometrage);
+                self::$uneVoiture->setPrix($result->prix);
+                self::$uneVoiture->setPoids($result->poids);
+                self::$uneVoiture->setReservoir($result->reservoir);
+                self::$uneVoiture->setAnnee($result->annee);
+                self::$uneVoiture->setNombrePortes($result->nombrePortes);
+                self::$uneVoiture->setDescription1($result->description1);
+                self::$uneVoiture->setDescription2($result->description2);
+                self::$uneVoiture->setDescription3($result->description3);
                 self::$lesVoitures[] = self::$uneVoiture;
             }
             return self::$lesVoitures;
@@ -61,8 +61,8 @@ class VoitureManager
     public static function getLesVoituresByName($recherche){
        try {
             self::$cnx = DbManager::getConnection();
-            $sql ='select id, immatriculation, marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description';
-            $sql .= ' from voiture';
+            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description';
+            $sql .= ' from voitures';
             $sql .= ' where modele =:recherche';
             //var_dump($sql);
             $result = self::$cnx->prepare($sql);
@@ -80,7 +80,7 @@ class VoitureManager
                     self::$uneVoiture = new Voiture();
                     self::$uneVoiture->setIdVoiture($result->id);
                     self::$uneVoiture->setImmatriculation($result->immatriculation);
-                    self::$uneVoiture->setMarque($result->marque);
+                    self::$uneVoiture->setIdMarque($result->id_marque);
                     self::$uneVoiture->setModele($result->modele);
                     self::$uneVoiture->setCouleur($result->couleur);
                     self::$uneVoiture->setKilometrage($result->kilometrage);
@@ -103,17 +103,17 @@ class VoitureManager
         }
     }
 
-    public static function getLesVoituresByMarques($marque){
+    public static function getLesVoituresByMarques($id_marque){
         try {
             self::$cnx = DbManager::getConnection();
-            $sql ='select id, immatriculation, marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description';
-            $sql .= ' from voiture';
-            $sql .= 'where marque = :marque';
+            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description';
+            $sql .= ' from voitures';
+            $sql .= 'where id_marque = :id_marque';
             //var_dump($sql);
             $result = self::$cnx->prepare($sql);
 
             //lie les valeurs reçues en paramètres aux étiquettes de la requête préparée
-            $result->bindParam('marque', $marque, PDO::PARAM_STR);
+            $result->bindParam('id_marque', $id_marque, PDO::PARAM_STR);
             
             $result->execute();
             //var_dump($result->rowCount());
@@ -125,7 +125,7 @@ class VoitureManager
                     self::$uneVoiture = new Voiture();
                     self::$uneVoiture->setIdVoiture($result->id);
                     self::$uneVoiture->setImmatriculation($result->immatriculation);
-                    self::$uneVoiture->setMarque($result->marque);
+                    self::$uneVoiture->setIdMarque($result->id_marque);
                     self::$uneVoiture->setModele($result->modele);
                     self::$uneVoiture->setCouleur($result->couleur);
                     self::$uneVoiture->setKilometrage($result->kilometrage);

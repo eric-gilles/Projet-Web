@@ -10,6 +10,7 @@
 	if (isset($GET['modele']) && !empty($GET['modele'])) {
 		$modele = $GET['modele'];
 		$voiture = VoitureManager::getLesVoituresByName($modele);
+		$marque = MarqueManager::getMarqueByid($voiture->getMarque());
 		if (count($voiture)>1) {
 			//header('Location: produits.php');
 		}
@@ -45,7 +46,7 @@
         <div class="jumbotron gray-700 mt-70">
             <div class="d-flex align-items-center h-100">
                 <div class="container text-center py-5">
-                     <h2 class="mb-0"><?php echo $voiture->getMarque().''.$voiture->getModele() ?></h2>
+                     <h2 class="mb-0"><?php //echo $marque->getMarque().''.$voiture->getModele() ?></h2>
                 </div>
             </div>
         </div>

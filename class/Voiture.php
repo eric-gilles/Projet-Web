@@ -20,7 +20,7 @@ class Voiture
      */
 	private $id;
 	private $immatriculation;
-	private $marque;
+	private $id_marque;
 	private $modele;
 	private $couleur;
 	private $kilometrage;
@@ -69,9 +69,9 @@ class Voiture
 	/**
 	 * @return $marque
 	 */
-	public function getMarque()
+	public function getIdMarque()
 	{
-	    return $this->marque;
+	    return $this->id_marque;
 	}
 
 	/**
@@ -184,9 +184,9 @@ class Voiture
 	/**
 	 * @param $marque
 	 */
-	public function setMarque($marque)
+	public function setIdMarque($id_marque)
 	{
-	    $this->marque = $marque;
+	    $this->id_marque = $id_marque;
 	}
 
 	/**

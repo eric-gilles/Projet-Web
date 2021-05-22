@@ -18,7 +18,7 @@ class Marque
      * - ils sont en visibilité private pour respecter le principe d'encapsulation
      * - le typage des attributs n'est valable que les versions les plus récentes de PHP
      */
-	private $id;
+	private $id_marque;
 	private $marque;
 
 	/*
@@ -38,13 +38,13 @@ class Marque
      */
 
 	//GETTER
-	
+
     /**
      * @return $id
      */
-    public function getId()
+    public function getIdMarque()
     {
-        return $this->id;
+        return $this->id_marque;
     }
 	/**
 	 * @return $marque
@@ -59,9 +59,9 @@ class Marque
 	/**
 	 * @param $id
 	 */
-	public function setId($id)
+	public function setIdMarque($id_marque)
 	{
-	    $this->id = $id;
+	    $this->id_marque = $id_marque;
 	    return $this;
 	}
 

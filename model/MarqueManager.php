@@ -30,9 +30,9 @@ class MarqueManager {
     {
         try{
             self::$cnx = DbManager::getConnection();
-            $sql = "SELECT id, marque";
+            $sql = "select id_marque, marque";
             $sql .= " FROM Marques";
-            $sql .= " ORDER BY marque;";
+            $sql .= " ORDER BY marque";
             //var_dump($sql);
             $result = self::$cnx->query($sql); 
             $result->setFetchMode(PDO::FETCH_CLASS, 'Marque');
@@ -43,6 +43,37 @@ class MarqueManager {
         } catch (Exception $e) {
             die('Erreur : ' . $e->getMessage());
         }
+    }
+
+    public static function getMarqueByid($id_marque): array
+    {
+        try{
+            self::$cnx = DbManager::getConnection();
+            
+            $sql = 'select id_marque, marque';
+            $sql .= ' from marques';
+            $sql .= ' where id_marque= :id_marque';
+            //var_dump($sql);
+            $result = self::$cnx->prepare($sql);
+            
+            // lie les valeurs reçues en paramètres aux étiquettes de la requête préparée   
+            $result->bindParam('id_marque', $id_marque, PDO::PARAM_INT);
+            
+            $result->execute();
+            //var_dump($result->rowCount());
+             
+            $result->setFetchMode(PDO::FETCH_CLASS, 'Marque');
+            if($result->rowCount() > 0)
+            {
+                while (self::$uneMarque = $result->fetch()) {
+                    return self::$uneMarque;
+                }
+            } else {
+                return null;
+            } 
+        } catch (Exception $ex) {
+            die('Erreur : ' . $ex->getMessage());
+        } 
     }
 }
 ?>
