@@ -176,7 +176,7 @@ class Voiture
 	 */
 	public function setImmatriculation($immatriculation)
 	{
-		if (strlen($immatriculation) == 6) {
+		if (strlen($immatriculation) == 9) {
 	    	$this->immatriculation = $immatriculation;
 		}
 	}

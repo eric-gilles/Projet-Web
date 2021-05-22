@@ -58,7 +58,7 @@ class VoitureManager
         }
     }
 
-    public static function getLesVoituresByName($recherche){
+    public static function getVoituresByName($recherche){
        try {
             self::$cnx = DbManager::getConnection();
             $sql ="select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3";
@@ -101,7 +101,7 @@ class VoitureManager
         }
     }
 
-    public static function getLesVoituresByMarque($id_marque){
+    public static function getVoituresByMarque($id_marque){
         try {
             self::$cnx = DbManager::getConnection();
             $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3';
@@ -112,6 +112,51 @@ class VoitureManager
 
             //lie les valeurs reçues en paramètres aux étiquettes de la requête préparée
             $result->bindParam('id_marque', $id_marque, PDO::PARAM_STR);
+            
+            $result->execute();
+            //var_dump($result->rowCount());
+             
+            $result->setFetchMode(PDO::FETCH_OBJ);
+            if($result->rowCount() > 0)
+            {
+                while ($resultat = $result->fetch()) {
+                    self::$uneVoiture = new Voiture();
+                    self::$uneVoiture->setIdVoiture($resultat->id);
+                    self::$uneVoiture->setImmatriculation($resultat->immatriculation);
+                    self::$uneVoiture->setIdMarque($resultat->id_marque);
+                    self::$uneVoiture->setModele($resultat->modele);
+                    self::$uneVoiture->setCouleur($resultat->couleur);
+                    self::$uneVoiture->setKilometrage($resultat->kilometrage);
+                    self::$uneVoiture->setPrix($resultat->prix);
+                    self::$uneVoiture->setPoids($resultat->poids);
+                    self::$uneVoiture->setReservoir($resultat->reservoir);
+                    self::$uneVoiture->setAnnee($resultat->annee);
+                    self::$uneVoiture->setNombrePortes($resultat->nombrePortes);
+                    self::$uneVoiture->setDescription1($resultat->description1);
+                    self::$uneVoiture->setDescription2($resultat->description2);
+                    self::$uneVoiture->setDescription3($resultat->description3);
+                    self::$lesVoitures[] = self::$uneVoiture;
+                }
+            } else {
+                return null;
+            } 
+            return self::$lesVoitures;
+        } catch (Exception $ex) {
+            die('Erreur : ' . $ex->getMessage());
+        }
+    }
+
+    public static function getVoituresById($id){
+        try {
+            self::$cnx = DbManager::getConnection();
+            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3';
+            $sql .= ' from voitures';
+            $sql .= ' where id = :id';
+            //var_dump($sql);
+            $result = self::$cnx->prepare($sql);
+
+            //lie les valeurs reçues en paramètres aux étiquettes de la requête préparée
+            $result->bindParam('id', $id, PDO::PARAM_STR);
             
             $result->execute();
             //var_dump($result->rowCount());

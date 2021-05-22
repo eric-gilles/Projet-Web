@@ -9,29 +9,29 @@
 
 
 // inclus les fichiers
-	require_once './model/DbManager.php';
-	require_once './model/MarqueManager.php';
-	require_once './class/Voiture.php';
-	require_once './class/Marque.php';
+require_once './model/DbManager.php';
+require_once './model/MarqueManager.php';
+require_once './class/Voiture.php';
+require_once './class/Marque.php';
 
 	if (isset($_GET['search']) && !empty($_GET['search'])) {
-				$recherche = $_GET['search'];
-				$voitures = VoitureManager::getLesVoituresByName($recherche);
-				//var_dump($voitures);
-			}
-			else if (isset($_GET['marque']) && !empty($_GET['marque'])) {
-				$marque_recherche = $_GET['marque'];
-				if ($marque_recherche == 'all_marques') {
-					header('Location: ./produits.php');
-				}
-				$marque = MarqueManager::getMarqueByMarque($marque_recherche);
-				//var_dump($marque);
-				$voitures = VoitureManager::getLesVoituresByMarque($marque->getIdMarque());
-				//var_dump($voitures);
-			}
-			else {
-				$voitures = VoitureManager::getallVoitures();
-			}
+		$recherche = $_GET['search'];
+		$voitures = VoitureManager::getVoituresByName($recherche);
+		//var_dump($voitures);
+	}
+	else if (isset($_GET['marque']) && !empty($_GET['marque'])) {
+		$marque_recherche = $_GET['marque'];
+		if ($marque_recherche == 'all_marques') {
+			header('Location: ./produits.php');
+		}
+		$marque = MarqueManager::getMarqueByMarque($marque_recherche);
+		//var_dump($marque);
+		$voitures = VoitureManager::getVoituresByMarque($marque->getIdMarque());
+		//var_dump($voitures);
+	}
+	else {
+		$voitures = VoitureManager::getallVoitures();
+	}
 
 ?><!DOCTYPE html>
 <html lang="fr">
@@ -68,7 +68,7 @@
 	                    <div class="container">
 	                        <div class="row">
 	                        	<div class="col">
-	                            	<h6 class="text-info">Marques</h6>
+	                            	<h5 class="text-info">Marques :</h5>
 	                            	
 	                            		<ul class="list-group list-group-horizontal-sm">
 	                                
@@ -134,8 +134,8 @@
 					$card .= "<img class='card-img-top' src='./img/img-voiture/".$value->getIdVoiture().".jpg' alt='".$marque->getMarque()." ".$value->getModele()."' width='300' height='200'>\n";
 					$card .= "<div class='card-body'>\n";
 					$card .= "<h5 class='card-title'>".$marque->getMarque()." ".$value->getModele()."</h5>\n";
-					$card .= "<p class='card-text'>".$value->getDescription1()."</p>\n";
-					$card .= "<a href='fiche_produit.php?voiture='".$value->getModele()."' class='btn btn-primary'>Descriptif</a>\n";
+					$card .= "<p class='card-text'>".$value->getDescription3()."</p>\n";
+					$card .= "<a href='fiche_produit.php?voiture=".$value->getIdVoiture()."' class='btn btn-primary'>Descriptif</a>\n";
 					$card .= "<button type='button' class='btn btn-light mr-1 mb-2'>\n";
 		            $card .= "<i class='fas fa-shopping-cart pr-2'></i>Ajouter au Panier\n";
 		            $card .= "</button>\n";

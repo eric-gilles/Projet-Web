@@ -6,14 +6,19 @@
  * @author E. Gilles & L. Boullee & A. Cerro
  * @date 04/2021
  */
-	require_once './model/VoitureManager.php';
-	if (isset($GET['modele']) && !empty($GET['modele'])) {
-		$modele = $GET['modele'];
-		$voiture = VoitureManager::getLesVoituresByName($modele);
-		$marque = MarqueManager::getMarqueByid($voiture->getMarque());
-		if (count($voiture)>1) {
-			//header('Location: produits.php');
-		}
+// inclus les fichiers
+require_once './model/DbManager.php';
+require_once './model/MarqueManager.php';
+require_once './class/Voiture.php';
+require_once './class/Marque.php';
+
+	if (isset($_GET['voiture']) && !empty($_GET['voiture'])) {
+		$idVoiture = $_GET['voiture'];
+		$voiture = VoitureManager::getVoituresById($idVoiture);
+		//var_dump($voiture);
+		//var_dump($marque);
+		$voiture = $voiture[0];
+		$marque = MarqueManager::getMarqueByIdMarque($voiture->getIdMarque());
 	}
 	else {
 		//header('Location: produits.php');
@@ -46,7 +51,7 @@
         <div class="jumbotron gray-700 mt-70">
             <div class="d-flex align-items-center h-100">
                 <div class="container text-center py-5">
-                     <h2 class="mb-0"><?php //echo $marque->getMarque().''.$voiture->getModele() ?></h2>
+                     <h2 class="mb-0"><?php echo $marque->getMarque().' '.$voiture->getModele() ?></h2>
                 </div>
             </div>
         </div>
@@ -71,37 +76,41 @@
 
 						<div class="col-12 mb-0">
 							<div class="view rounded z-depth-1 main-img">
-			                    <a href="./img/imgtest.png" data-size="710x823">
-			                    	<img src="./img/imgtest.png" style="margin-top: -90px"  width="550" height="400";>
-			                    </a>
+								<?php
+									$html = " ";
+									$html .= "<a href='./img/img-voiture/".$voiture->getIdVoiture().".jpg' data-size='710x823'>";
+				                    $html .= "<img src='./img/img-voiture/".$voiture->getIdVoiture().".jpg' style='margin-top: -90px' width='550' height='450';>";
+				                    $html .= "</a>\n";
+									echo $html;
+			                    ?>
                   			</div>
                 		</div>
-	                	
         			</div>
    				</div>
           </div>
           <div class="col-md-6">
 
-			<h5>Renault Clio</h5>
-			<p class="mb-2 text-muted text-uppercase small">Citadine</p>
-			<p><span class="mr-1"><strong>8790 €</strong></span></p>
-            <p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
-              error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
-              officia quis dolore quos sapiente tempore alias.</p>
+			<h5><?php echo $marque->getMarque()." ".$voiture->getModele();?></h5>
+			<p><span class="mr-1"><strong><?php echo $voiture->getPrix();?> €</strong></span></p>
+            <p class="pt-1"><?php echo $voiture->getDescription1(); ?></p>
             <div class="table-responsive">
 				<table class="table table-sm table-borderless mb-0">
                 	<tbody>
                 		<tr>
                     		<th class="pl-0 w-25" scope="row"><strong>Modèle</strong></th>
-                    		<td>Renault Clio</td>
+                    		<td><?php echo $marque->getMarque()." ".$voiture->getModele(); ?></td>
                   		</tr>
 		                <tr>
 		                	<th class="pl-0 w-25" scope="row"><strong>Couleur</strong></th>
-		                	<td>Bleu</td>
+		                	<td><?php echo $voiture->getCouleur(); ?></td>
 		                </tr>
 		                <tr>
-		                	<th class="pl-0 w-25" scope="row"><strong>Localisation</strong></th>
-		                	<td>Montpellier, France</td>
+		                	<th class="pl-0 w-25" scope="row"><strong>Immatriculation</strong></th>
+		                	<td><?php echo $voiture->getImmatriculation(); ?></td>
+		                </tr>
+		                <tr>
+		                	<th class="pl-0 w-25" scope="row"><strong>Kilométrage</strong></th>
+		                	<td><?php echo $voiture->getKilometrage(); ?> km</td>
 		                </tr>
                 	</tbody>
               	</table>
@@ -129,12 +138,10 @@
 
         <div class="tab-content" id="advancedTabContent">
         	<div class="tab-pane fade show active" id="description" role="tabpanel" aria-labelledby="description-tab">
-            	<h5>Product Description</h5>
-            	<p class="small text-muted text-uppercase mb-2">Citadine</p>
-            	<h6>8790 €</h6>
-            	<p class="pt-1">Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam, sapiente illo. Sit
-              	error voluptas repellat rerum quidem, soluta enim perferendis voluptates laboriosam. Distinctio,
-              	officia quis dolore quos sapiente tempore alias.</p>
+            	<h5><?php echo $marque->getMarque()." ".$voiture->getModele(); ?></h5>
+            	<p class="text-muted mb-2">Année : <?php echo $voiture->getAnnee(); ?></p>
+            	<h6>Prix : <?php echo $voiture->getPrix();?> €</h6>
+            	<p class="pt-1"><?php echo $voiture->getDescription2(); ?></p>
           	</div>
           	<div class="tab-pane fade" id="info" role="tabpanel" aria-labelledby="info-tab">
             	<h5>Informations Supplémentaires</h5>
@@ -142,13 +149,17 @@
               		<thead>
                 		<tr>
 		                	<th scope="row" class="w-150 dark-grey-text h6">Poids</th>
-		                	<td><em>1.240 kg</em></td>
+		                	<td><em><?php echo $voiture->getPoids(); ?> kg</em></td>
                 		</tr>
               		</thead>
               		<tbody>
 		            	<tr>
-		                	<th scope="row" class="w-150 dark-grey-text h6">Dimensions</th>
-		                	<td><em>4.05 × 1.79 x 1.44 m</em></td>
+		                	<th scope="row" class="w-150 dark-grey-text h6">Réservoir</th>
+		                	<td><em><?php echo $voiture->getReservoir(); ?> litres</em></td>
+		                </tr>
+		                <tr>
+		                	<th scope="row" class="w-150 dark-grey-text h6">Nombre de portes</th>
+		                	<td><em><?php echo $voiture->getNombrePortes(); ?></em></td>
 		                </tr>
               		</tbody>
             	</table>
@@ -161,7 +172,7 @@
 	</main>
 	<!--Main Body-->
 	
-	<div style="padding: 50px;"></div>
+	<div style="padding: 30px;"></div>
 
     <!-- Affichage du footer -->
     <?php
