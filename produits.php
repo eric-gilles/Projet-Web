@@ -38,8 +38,9 @@
 			$voitures = VoitureManager::getLesVoituresByName($recherche);
 		}
 		else if (isset($_GET['marque']) && !empty($_GET['marque'])) {
-			$marque = $_GET['marque'];
-			$voitures = VoitureManager::getLesVoituresByMarques($marque);
+			$marque_recherche = $_GET['marque'];
+			$marque = MarqueManager::getMarqueByMarque($marque_recherche);
+			$voitures = VoitureManager::getLesVoituresByMarque($marque->getIdMarque());
 		}
 		else {
 			$voitures = VoitureManager::getallVoitures();
@@ -113,30 +114,33 @@
 	 	<div class="row">
 	 	<?php
 	 		$compteur = 1;
-	 		foreach ($voitures as $value) {
-	 			$card = '';
-	 			$card .= '<div class="col-sm">';
-				$card .= '<!-- Début Card Bootstrap -->';
-				$card .= '<div class="card" style="width: 18rem;">';
-				$card .= '<img class="card-img-top" src="./img/imgtest.png" alt="'.$value->getMarque().' '.$value->getModele().'">';
-				$card .= '<div class="card-body">';
-				$card .= '<h5 class="card-title">'.$value->getMarque().' '.$value->getModele().'</h5>';
-				$card .= '<p class="card-text">'.$value->getDescription1().'</p>';
-				$card .= "<a href='fiche_produit.php?voiture='".$value->getModele()."' class='btn btn-primary'>Descriptif</a>";
-				$card .= '<button type="button" class="btn btn-light mr-1 mb-2">';
-	            $card .= '<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier';
-	            $card .= '</button>';
-				$card .= '</div>';
-				$card .= '</div>';
-				$card .= '<!-- Fin Card Bootstrap -->';
-				$card .= '</div>';
-				echo $card;
-				$compteur++;
-				if ($compteur % 3 == 0) {
-					echo "</div><br><div class='row'>";
-				}
+	 		if (isset($voitures)) {
+	 			foreach ($voitures as $value) {
+		 			$card = '';
+		 			$card .= '<div class="col-sm">';
+					$card .= '<!-- Début Card Bootstrap -->';
+					$card .= '<div class="card" style="width: 18rem;">';
+					$card .= '<img class="card-img-top" src="./img/imgtest.png" alt="'.$value->getMarque().' '.$value->getModele().'">';
+					$card .= '<div class="card-body">';
+					$card .= '<h5 class="card-title">'.$value->getMarque().' '.$value->getModele().'</h5>';
+					$card .= '<p class="card-text">'.$value->getDescription1().'</p>';
+					$card .= "<a href='fiche_produit.php?voiture='".$value->getModele()."' class='btn btn-primary'>Descriptif</a>";
+					$card .= '<button type="button" class="btn btn-light mr-1 mb-2">';
+		            $card .= '<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier';
+		            $card .= '</button>';
+					$card .= '</div>';
+					$card .= '</div>';
+					$card .= '<!-- Fin Card Bootstrap -->';
+					$card .= '</div>';
+					echo $card;
+					$compteur++;
+					if ($compteur % 3 == 0) {
+						echo "</div><br><div class='row'>";
+					}
+	 			}
+	 			echo '</div>';
 	 		}
-	 		echo '</div>';
+	 		
 			
 			?>
 	    	<div class="col-sm">
@@ -306,15 +310,49 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-    <script type="text/javascript">
+    <script>
+    	//fonction qui permet de filter en changant l'URL si une checkbox est cochée
     	function filtrer(input) {
-    		if (input.name='all_marques') {
-    			window.location.reload(true);
-    		}else{
-    			path = window.location+"?marque="input.name;
-    			window.location.replace(path)
+    		adresse = window.location.toString();
+    		if (input.checked) {
+    			if (input.id='all_marques') {
+    				window.location.replace(window.location.pathname);
+    			}
+    			if (adresse.includes('?')) {
+    				adresse = window.location.pathname;
+    				adresse += '?'+ input.name+"="+input.value;
+    			}
+    			else{
+    				adresse += '?'+ input.name+"="+input.value;
+    			}
+
     		}
+    		
+    		window.location.replace(adresse);
     	}
+
+    	//A chaque chargement de page, on vérifie si la marque est dans l'URL est on coche la checkbox
+    	window.onload = function onPageLoad() {
+            if (window.location.toString().includes('Citroen')) {
+                document.getElementById('Citroen').checked = true;
+            }
+            if (window.location.toString().includes('Renault')) {
+                document.getElementById('Renault').checked = true;
+            }
+            if (window.location.toString().includes('Peugeot')) {
+                document.getElementById('Peugeot').checked = true;
+            }
+            if (window.location.toString().includes('Bugatti')) {
+                document.getElementById('Bugatti').checked = true;
+            }
+            if (window.location.toString().includes('all_marques')) {
+                document.getElementById('all_marques').checked = true;
+            }
+            if (!window.location.toString().includes('?') && document.getElementById("search") == null) {
+                document.getElementById('all_marques').checked = true;
+            }
+        }
+    	
     </script>
 </body>
 </html>

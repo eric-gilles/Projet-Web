@@ -61,7 +61,7 @@ class VoitureManager
     public static function getLesVoituresByName($recherche){
        try {
             self::$cnx = DbManager::getConnection();
-            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description';
+            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3';
             $sql .= ' from voitures';
             $sql .= ' where modele =:recherche';
             //var_dump($sql);
@@ -103,12 +103,12 @@ class VoitureManager
         }
     }
 
-    public static function getLesVoituresByMarques($id_marque){
+    public static function getLesVoituresByMarque($id_marque){
         try {
             self::$cnx = DbManager::getConnection();
-            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description';
+            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3';
             $sql .= ' from voitures';
-            $sql .= 'where id_marque = :id_marque';
+            $sql .= ' where id_marque = :id_marque';
             //var_dump($sql);
             $result = self::$cnx->prepare($sql);
 

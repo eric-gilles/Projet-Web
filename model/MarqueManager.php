@@ -45,19 +45,19 @@ class MarqueManager {
         }
     }
 
-    public static function getMarqueByid($id_marque): array
+    public static function getMarqueByMarque($marque)
     {
         try{
             self::$cnx = DbManager::getConnection();
             
             $sql = 'select id_marque, marque';
             $sql .= ' from marques';
-            $sql .= ' where id_marque= :id_marque';
+            $sql .= ' where marque= :marque';
             //var_dump($sql);
             $result = self::$cnx->prepare($sql);
             
             // lie les valeurs reçues en paramètres aux étiquettes de la requête préparée   
-            $result->bindParam('id_marque', $id_marque, PDO::PARAM_INT);
+            $result->bindParam('marque', $marque, PDO::PARAM_INT);
             
             $result->execute();
             //var_dump($result->rowCount());

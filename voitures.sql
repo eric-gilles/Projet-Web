@@ -136,7 +136,7 @@ insert into Voitures values(12,'QD-751-VK', 1,'Xsara','Argent',201626,995,1152,5
                             'Boîte de vitesse: Manuel',
                             'Berline de gamme moyenne avec un aspect compacte');
 
-insert into Marques values(1,'Citroën');
+insert into Marques values(1,'Citroen');
 insert into Marques values(2,'Renault');
 insert into Marques values(3,'Peugeot');
 insert into Marques values(4,'Bugatti');
