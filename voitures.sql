@@ -34,9 +34,6 @@ CREATE TABLE IF NOT EXISTS `Voitures`(
        constraint pk_voitures primary key(id)
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
--- ajout contraite
-ALTER table voitures
-ADD CONSTRAINT fk_voitures foreign key (id_marque) REFERENCES Marques(id_marque);
 
 -- on insère des données
 insert into Voitures values(1,'FZ-208-DG', 1,'Xantia','Rouge',177500,1290,1361,65,2002,5,
@@ -92,3 +89,7 @@ insert into Marques values(1,'Citroen');
 insert into Marques values(2,'Renault');
 insert into Marques values(3,'Peugeot');
 insert into Marques values(4,'Bugatti');
+
+-- ajout contraite
+ALTER TABLE Voitures
+ADD CONSTRAINT fk_voitures foreign key (id_marque) REFERENCES Marques(id_marque);
