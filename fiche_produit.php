@@ -76,34 +76,7 @@
 			                    </a>
                   			</div>
                 		</div>
-	                	<div class="col-12">
-	                  		<div class="row">
-	                    		<div class="col-3">
-	                      			<div class="view rounded z-depth-1 gallery-item hoverable">
-	                        			<img src="./img/imgtest1.jpg" class="img-fluid">
-	                        			<div class="mask rgba-white-slight"></div>
-	                      			</div>
-	                    		</div>
-			                    <div class="col-3">
-			                    	<div class="view rounded z-depth-1 gallery-item hoverable">
-			                        	<img src="./img/imgtest.png" class="img-fluid">
-			                        	<div class="mask rgba-white-slight"></div>
-			                      	</div>
-			                    </div>
-			                    <div class="col-3">
-			                    	<div class="view rounded z-depth-1 gallery-item hoverable">
-			                        	<img src="./img/imgtest.png" class="img-fluid">
-			                        	<div class="mask rgba-white-slight"></div>
-			                      	</div>
-			                    </div>
-			                    <div class="col-3">
-			                    	<div class="view rounded z-depth-1 gallery-item hoverable">
-			                        	<img src="./img/imgtest.png" class="img-fluid">
-			                        	<div class="mask rgba-white-slight"></div>
-			                      	</div>
-                    			</div>
-                			</div>
-            			</div>
+	                	
         			</div>
    				</div>
           </div>

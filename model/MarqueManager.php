@@ -50,14 +50,11 @@ class MarqueManager {
         try{
             self::$cnx = DbManager::getConnection();
             
-            $sql = 'select id_marque, marque';
-            $sql .= ' from marques';
-            $sql .= ' where marque= :marque';
+            $sql = "select id_marque, marque";
+            $sql .= " from marques";
+            $sql .= " where marque LIKE '".$marque."%'";
             //var_dump($sql);
             $result = self::$cnx->prepare($sql);
-            
-            // lie les valeurs reçues en paramètres aux étiquettes de la requête préparée   
-            $result->bindParam('marque', $marque, PDO::PARAM_INT);
             
             $result->execute();
             //var_dump($result->rowCount());
@@ -73,7 +70,37 @@ class MarqueManager {
             } 
         } catch (Exception $ex) {
             die('Erreur : ' . $ex->getMessage());
-        } 
+        }
+    }
+        public static function getMarqueByIdMarque($id_marque)
+        {
+            try{
+                self::$cnx = DbManager::getConnection();
+                
+                $sql = 'select id_marque, marque';
+                $sql .= ' from marques';
+                $sql .= ' where id_marque= :id_marque';
+                //var_dump($sql);
+                $result = self::$cnx->prepare($sql);
+                
+                // lie les valeurs reçues en paramètres aux étiquettes de la requête préparée   
+                $result->bindParam('id_marque', $id_marque, PDO::PARAM_INT);
+                
+                $result->execute();
+                //var_dump($result->rowCount());
+                 
+                $result->setFetchMode(PDO::FETCH_CLASS, 'Marque');
+                if($result->rowCount() > 0)
+                {
+                    while (self::$uneMarque = $result->fetch()) {
+                        return self::$uneMarque;
+                    }
+                } else {
+                    return null;
+                } 
+            } catch (Exception $ex) {
+                die('Erreur : ' . $ex->getMessage());
+            }
     }
 }
 ?>

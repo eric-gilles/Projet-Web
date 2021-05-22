@@ -176,7 +176,7 @@ class Voiture
 	 */
 	public function setImmatriculation($immatriculation)
 	{
-		if (strlen($attribut) == 9) {
+		if (strlen($immatriculation) == 6) {
 	    	$this->immatriculation = $immatriculation;
 		}
 	}
@@ -274,7 +274,7 @@ class Voiture
 	/**
 	 * @param $description3
 	 */
-	public function setDescription3($description2)
+	public function setDescription3($description3)
 	{
 	    $this->description3 = $description3;
 	}

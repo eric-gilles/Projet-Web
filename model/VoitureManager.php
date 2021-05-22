@@ -29,27 +29,27 @@ class VoitureManager
     public static function getallVoitures(){
         try {
             self::$cnx = DbManager::getConnection();
-            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3';
-            $sql.= ' from voitures';
+            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3 from voitures';
             //var_dump($sql);
             $result = self::$cnx->query($sql);
+
             $result->setFetchMode(PDO::FETCH_OBJ);
-            while (self::$uneVoiture = $result->fetch()) {
+            while ($resultat = $result->fetch()) {
                 self::$uneVoiture = new Voiture();
-                self::$uneVoiture->setIdVoiture($result->id);
-                self::$uneVoiture->setImmatriculation($result->immatriculation);
-                self::$uneVoiture->setIdMarque($result->id_marque);
-                self::$uneVoiture->setModele($result->modele);
-                self::$uneVoiture->setCouleur($result->couleur);
-                self::$uneVoiture->setKilometrage($result->kilometrage);
-                self::$uneVoiture->setPrix($result->prix);
-                self::$uneVoiture->setPoids($result->poids);
-                self::$uneVoiture->setReservoir($result->reservoir);
-                self::$uneVoiture->setAnnee($result->annee);
-                self::$uneVoiture->setNombrePortes($result->nombrePortes);
-                self::$uneVoiture->setDescription1($result->description1);
-                self::$uneVoiture->setDescription2($result->description2);
-                self::$uneVoiture->setDescription3($result->description3);
+                self::$uneVoiture->setIdVoiture($resultat->id);
+                self::$uneVoiture->setImmatriculation($resultat->immatriculation);
+                self::$uneVoiture->setIdMarque($resultat->id_marque);
+                self::$uneVoiture->setModele($resultat->modele);
+                self::$uneVoiture->setCouleur($resultat->couleur);
+                self::$uneVoiture->setKilometrage($resultat->kilometrage);
+                self::$uneVoiture->setPrix($resultat->prix);
+                self::$uneVoiture->setPoids($resultat->poids);
+                self::$uneVoiture->setReservoir($resultat->reservoir);
+                self::$uneVoiture->setAnnee($resultat->annee);
+                self::$uneVoiture->setNombrePortes($resultat->nombrePortes);
+                self::$uneVoiture->setDescription1($resultat->description1);
+                self::$uneVoiture->setDescription2($resultat->description2);
+                self::$uneVoiture->setDescription3($resultat->description3);
                 self::$lesVoitures[] = self::$uneVoiture;
             }
             return self::$lesVoitures;
@@ -61,14 +61,11 @@ class VoitureManager
     public static function getLesVoituresByName($recherche){
        try {
             self::$cnx = DbManager::getConnection();
-            $sql ='select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3';
-            $sql .= ' from voitures';
-            $sql .= ' where modele =:recherche';
+            $sql ="select id, immatriculation, id_marque, modele, couleur, kilometrage, prix, poids, reservoir, annee, nombrePortes, description1, description2, description3";
+            $sql .= " from voitures";
+            $sql .= " where modele LIKE '%".$recherche."%'";
             //var_dump($sql);
             $result = self::$cnx->prepare($sql);
-
-            // lie les valeurs reçues en paramètres aux étiquettes de la requête préparée
-            $result->bindParam('recherche', $recherche, PDO::PARAM_STR);
             
             $result->execute();
             //var_dump($result->rowCount());
@@ -76,27 +73,28 @@ class VoitureManager
             $result->setFetchMode(PDO::FETCH_OBJ);
             if($result->rowCount() > 0)
             {
-                while ($unResultat = $result->fetch()) {
+                while ($resultat = $result->fetch()) {
                     self::$uneVoiture = new Voiture();
-                    self::$uneVoiture->setIdVoiture($result->id);
-                    self::$uneVoiture->setImmatriculation($result->immatriculation);
-                    self::$uneVoiture->setIdMarque($result->id_marque);
-                    self::$uneVoiture->setModele($result->modele);
-                    self::$uneVoiture->setCouleur($result->couleur);
-                    self::$uneVoiture->setKilometrage($result->kilometrage);
-                    self::$uneVoiture->setPrix($result->prix);
-                    self::$uneVoiture->setPoids($result->poids);
-                    self::$uneVoiture->setReservoir($result->reservoir);
-                    self::$uneVoiture->setAnnee($result->annee);
-                    self::$uneVoiture->setNombrePortes($result->nombrePortes);
-                    self::$uneVoiture->setDescription1($result->description1);
-                    self::$uneVoiture->setDescription2($result->description2);
-                    self::$uneVoiture->setDescription3($result->description3);
+                    self::$uneVoiture->setIdVoiture($resultat->id);
+                    self::$uneVoiture->setImmatriculation($resultat->immatriculation);
+                    self::$uneVoiture->setIdMarque($resultat->id_marque);
+                    self::$uneVoiture->setModele($resultat->modele);
+                    self::$uneVoiture->setCouleur($resultat->couleur);
+                    self::$uneVoiture->setKilometrage($resultat->kilometrage);
+                    self::$uneVoiture->setPrix($resultat->prix);
+                    self::$uneVoiture->setPoids($resultat->poids);
+                    self::$uneVoiture->setReservoir($resultat->reservoir);
+                    self::$uneVoiture->setAnnee($resultat->annee);
+                    self::$uneVoiture->setNombrePortes($resultat->nombrePortes);
+                    self::$uneVoiture->setDescription1($resultat->description1);
+                    self::$uneVoiture->setDescription2($resultat->description2);
+                    self::$uneVoiture->setDescription3($resultat->description3);
                     self::$lesVoitures[] = self::$uneVoiture;
-                }
+                    }
             } else {
                 return null;
-            } 
+            }
+            var_dump(self::$lesVoitures);
             return self::$lesVoitures;
         } catch (Exception $ex) {
             die('Erreur : ' . $ex->getMessage());
@@ -121,22 +119,22 @@ class VoitureManager
             $result->setFetchMode(PDO::FETCH_OBJ);
             if($result->rowCount() > 0)
             {
-                while ($unResultat = $result->fetch()) {
+                while ($resultat = $result->fetch()) {
                     self::$uneVoiture = new Voiture();
-                    self::$uneVoiture->setIdVoiture($result->id);
-                    self::$uneVoiture->setImmatriculation($result->immatriculation);
-                    self::$uneVoiture->setIdMarque($result->id_marque);
-                    self::$uneVoiture->setModele($result->modele);
-                    self::$uneVoiture->setCouleur($result->couleur);
-                    self::$uneVoiture->setKilometrage($result->kilometrage);
-                    self::$uneVoiture->setPrix($result->prix);
-                    self::$uneVoiture->setPoids($result->poids);
-                    self::$uneVoiture->setReservoir($result->reservoir);
-                    self::$uneVoiture->setAnnee($result->annee);
-                    self::$uneVoiture->setNombrePortes($result->nombrePortes);
-                    self::$uneVoiture->setDescription1($result->description1);
-                    self::$uneVoiture->setDescription2($result->description2);
-                    self::$uneVoiture->setDescription3($result->description3);
+                    self::$uneVoiture->setIdVoiture($resultat->id);
+                    self::$uneVoiture->setImmatriculation($resultat->immatriculation);
+                    self::$uneVoiture->setIdMarque($resultat->id_marque);
+                    self::$uneVoiture->setModele($resultat->modele);
+                    self::$uneVoiture->setCouleur($resultat->couleur);
+                    self::$uneVoiture->setKilometrage($resultat->kilometrage);
+                    self::$uneVoiture->setPrix($resultat->prix);
+                    self::$uneVoiture->setPoids($resultat->poids);
+                    self::$uneVoiture->setReservoir($resultat->reservoir);
+                    self::$uneVoiture->setAnnee($resultat->annee);
+                    self::$uneVoiture->setNombrePortes($resultat->nombrePortes);
+                    self::$uneVoiture->setDescription1($resultat->description1);
+                    self::$uneVoiture->setDescription2($resultat->description2);
+                    self::$uneVoiture->setDescription3($resultat->description3);
                     self::$lesVoitures[] = self::$uneVoiture;
                 }
             } else {

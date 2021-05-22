@@ -13,6 +13,26 @@
 	require_once './model/MarqueManager.php';
 	require_once './class/Voiture.php';
 	require_once './class/Marque.php';
+
+	if (isset($_GET['search']) && !empty($_GET['search'])) {
+				$recherche = $_GET['search'];
+				$voitures = VoitureManager::getLesVoituresByName($recherche);
+				//var_dump($voitures);
+			}
+			else if (isset($_GET['marque']) && !empty($_GET['marque'])) {
+				$marque_recherche = $_GET['marque'];
+				if ($marque_recherche == 'all_marques') {
+					header('Location: ./produits.php');
+				}
+				$marque = MarqueManager::getMarqueByMarque($marque_recherche);
+				//var_dump($marque);
+				$voitures = VoitureManager::getLesVoituresByMarque($marque->getIdMarque());
+				//var_dump($voitures);
+			}
+			else {
+				$voitures = VoitureManager::getallVoitures();
+			}
+
 ?><!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -33,19 +53,6 @@
 <body>
 	<div class="container-fluid h-100">
 	<?php
-		if (isset($_GET['search']) && !empty($_GET['search'])) {
-			$recherche = $_GET['search'];
-			$voitures = VoitureManager::getLesVoituresByName($recherche);
-		}
-		else if (isset($_GET['marque']) && !empty($_GET['marque'])) {
-			$marque_recherche = $_GET['marque'];
-			$marque = MarqueManager::getMarqueByMarque($marque_recherche);
-			$voitures = VoitureManager::getLesVoituresByMarque($marque->getIdMarque());
-		}
-		else {
-			$voitures = VoitureManager::getallVoitures();
-		}
-
 		require_once './model/DbManager.php';
 		//require_once './inc/banner.php';
 		require_once './inc/navbar.php';		
@@ -113,189 +120,42 @@
 	<div class="container">
 	 	<div class="row">
 	 	<?php
-	 		$compteur = 1;
-	 		if (isset($voitures)) {
+	 		$compteur = 0;
+	 		//var_dump($voitures);
+	 		if (isset($voitures) && !empty($voitures)) {
 	 			foreach ($voitures as $value) {
+	 				$id_marque = $value->getIdMarque();
+	 				//var_dump($id_marque);
+	 				$marque = MarqueManager::getMarqueByIdMarque($id_marque);
 		 			$card = '';
-		 			$card .= '<div class="col-sm">';
-					$card .= '<!-- Début Card Bootstrap -->';
-					$card .= '<div class="card" style="width: 18rem;">';
-					$card .= '<img class="card-img-top" src="./img/imgtest.png" alt="'.$value->getMarque().' '.$value->getModele().'">';
-					$card .= '<div class="card-body">';
-					$card .= '<h5 class="card-title">'.$value->getMarque().' '.$value->getModele().'</h5>';
-					$card .= '<p class="card-text">'.$value->getDescription1().'</p>';
-					$card .= "<a href='fiche_produit.php?voiture='".$value->getModele()."' class='btn btn-primary'>Descriptif</a>";
-					$card .= '<button type="button" class="btn btn-light mr-1 mb-2">';
-		            $card .= '<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier';
-		            $card .= '</button>';
-					$card .= '</div>';
-					$card .= '</div>';
-					$card .= '<!-- Fin Card Bootstrap -->';
-					$card .= '</div>';
+		 			$card .= "<div class='col-sm'>\n";
+					$card .= "<!-- Début Card Bootstrap -->\n";
+					$card .= "<div class='card' style='width: 18rem;'>\n";
+					$card .= "<img class='card-img-top' src='./img/img-voiture/".$value->getIdVoiture().".jpg' alt='".$marque->getMarque()." ".$value->getModele()."' width='300' height='200'>\n";
+					$card .= "<div class='card-body'>\n";
+					$card .= "<h5 class='card-title'>".$marque->getMarque()." ".$value->getModele()."</h5>\n";
+					$card .= "<p class='card-text'>".$value->getDescription1()."</p>\n";
+					$card .= "<a href='fiche_produit.php?voiture='".$value->getModele()."' class='btn btn-primary'>Descriptif</a>\n";
+					$card .= "<button type='button' class='btn btn-light mr-1 mb-2'>\n";
+		            $card .= "<i class='fas fa-shopping-cart pr-2'></i>Ajouter au Panier\n";
+		            $card .= "</button>\n";
+					$card .= "</div>\n";
+					$card .= "</div>\n";
+					$card .= "<!-- Fin Card Bootstrap -->\n";
+					$card .= "</div>\n";
 					echo $card;
 					$compteur++;
 					if ($compteur % 3 == 0) {
-						echo "</div><br><div class='row'>";
+						echo "</div>\n<br><div class='row'>\n";
 					}
 	 			}
-	 			echo '</div>';
+	 			echo "</div>\n";
 	 		}
-	 		
-			
-			?>
-	    	<div class="col-sm">
-			<!-- 2e Card Bootstrap -->
-				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="./img/imgtest.png" alt="Card image cap">
-					<div class="card-body">
-			    		<h5 class="card-title">Card title</h5>
-			    		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    		<a href="fiche_produit.php" class="btn btn-primary mr-1 mb-2">Descriptif</a>
-            			<button type="button" class="btn btn-light mr-1 mb-2">
-            				<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier
-            			</button>
-			  		</div>
-				</div>
-			<!-- Fin Card Bootstrap -->
-		    </div>
-
-		    <div class="col-sm">
-			<!-- 3e Card Bootstrap -->
-				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="./img/imgtest.png" alt="Card image cap">
-					<div class="card-body">
-			    		<h5 class="card-title">Card title</h5>
-			    		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    		<a href="fiche_produit.php" class="btn btn-primary">Descriptif</a>
-			    		<button type="button" class="btn btn-light mr-1 mb-2">
-            				<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier
-            			</button>
-			  		</div>
-				</div>
-			<!-- Fin 3e Card Bootstrap -->
-		    </div>
-
-
-		</div>
-		<br>
-		<div class="row">
-
-		    <div class="col-sm">
-			<!-- 4e Card Bootstrap -->
-				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="./img/imgtest.png" alt="Card image cap">
-					<div class="card-body">
-			    		<h5 class="card-title">Card title</h5>
-			    		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    		<a href="fiche_produit.php" class="btn btn-primary">Descriptif</a>
-			    		<button type="button" class="btn btn-light mr-1 mb-2">
-            				<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier
-            			</button>
-			  		</div>
-				</div>
-			<!-- Fin 4e Card Bootstrap -->
-		    </div>
-
-	    	<div class="col-sm">
-			<!-- 5e Card Bootstrap -->
-				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="./img/imgtest.png" alt="Card image cap">
-					<div class="card-body">
-			    		<h5 class="card-title">Card title</h5>
-			    		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    		<a href="fiche_produit.php" class="btn btn-primary">Descriptif</a>
-			    		<button type="button" class="btn btn-light mr-1 mb-2">
-            				<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier
-            			</button>
-			  		</div>
-				</div>
-			<!-- Fin 5e Card Bootstrap -->
-		    </div>
-
-		    <div class="col-sm">
-			<!-- 6e Card Bootstrap -->
-				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="./img/imgtest.png" alt="Card image cap">
-					<div class="card-body">
-			    		<h5 class="card-title">Card title</h5>
-			    		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    		<a href="fiche_produit.php" class="btn btn-primary">Descriptif</a>
-			    		<button type="button" class="btn btn-light mr-1 mb-2">
-            				<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier
-            			</button>
-			  		</div>
-				</div>
-			<!-- Fin 6e Card Bootstrap -->
-		    </div>
+		?>
 		    
 		</div>
-		<br>
-		<div class="row">
-
-		    <div class="col-sm">
-			<!-- 7e Card Bootstrap -->
-				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="./img/imgtest.png" alt="Card image cap">
-					<div class="card-body">
-			    		<h5 class="card-title">Card title</h5>
-			    		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    		<a href="fiche_produit.php" class="btn btn-primary">Descriptif</a>
-			    		<button type="button" class="btn btn-light mr-1 mb-2">
-            				<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier
-            			</button>
-			  		</div>
-				</div>
-			<!-- Fin 7e Card Bootstrap -->
-		    </div>
-
-	    	<div class="col-sm">
-			<!-- 8e Card Bootstrap -->
-				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="./img/imgtest.png" alt="Card image cap">
-					<div class="card-body">
-			    		<h5 class="card-title">Card title</h5>
-			    		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    		<a href="fiche_produit.php" class="btn btn-primary">Descriptif</a>
-			    		<button type="button" class="btn btn-light mr-1 mb-2">
-            				<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier
-            			</button>
-			  		</div>
-				</div>
-			<!-- Fin 8e Card Bootstrap -->
-		    </div>
-
-		    <div class="col-sm">
-			<!-- 9e Card Bootstrap -->
-				<div class="card" style="width: 18rem;">
-					<img class="card-img-top" src="./img/imgtest.png" alt="Card image cap">
-					<div class="card-body">
-			    		<h5 class="card-title">Card title</h5>
-			    		<p class="card-text">Some quick example text to build on the card title and make up the bulk of the card's content.</p>
-			    		<a href="fiche_produit.php" class="btn btn-primary">Descriptif</a>
-			    		<button type="button" class="btn btn-light mr-1 mb-2">
-            				<i class="fas fa-shopping-cart pr-2"></i>Ajouter au Panier
-            			</button>
-			  		</div>
-				</div>
-			<!-- Fin 9e Card Bootstrap -->
-		    </div>
-		    
-		</div>
-
-
-
-
-
-
-
-
-
-
-
-
-	  </div>
 	</div>
-	</div>
+</div>
 	<div style="padding: 50px;"></div>
 	<!-- Affichage du footer -->
     <?php
