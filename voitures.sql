@@ -1,4 +1,6 @@
-
+-- Création de la base si elle n'existe pas
+CREATE DATABASE  IF NOT EXISTS `projetweb` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */;
+USE `projetweb`;
 
 ------------------------------------------
 --On supprime les tables existantes

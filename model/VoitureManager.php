@@ -15,7 +15,7 @@ require_once './model/MarqueManager.php';
 class VoitureManager
 {
      // attributs techniques
-    private static ?\PDO $cnx = null;
+    private static $cnx = null;
 
     // attributs métier
     private static $uneVoiture;

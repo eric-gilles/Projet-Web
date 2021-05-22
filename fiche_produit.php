@@ -6,6 +6,19 @@
  * @author E. Gilles & L. Boullee & A. Cerro
  * @date 04/2021
  */
+	require_once './model/VoitureManager.php';
+	if (isset($GET['modele']) && !empty($GET['modele'])) {
+		$modele = $GET['modele'];
+		$voiture = VoitureManager::getLesVoituresByName($modele);
+		if (count($voiture)>1) {
+			//header('Location: produits.php');
+		}
+	}
+	else {
+		//header('Location: produits.php');
+	}
+	
+	
 ?>
 <!DOCTYPE html>
 <html lang="fr">
@@ -15,7 +28,7 @@
     <meta name="description" content="Site de vente de Voitures d'occasions">
     <meta name="author" content="AS Web">
 
-	<title>Document</title>
+	<title>Fiche_produit</title>
 
 	<!-- Bootstrap & CSS -->
 	<link rel="stylesheet" href="./css/style.css">
@@ -32,7 +45,7 @@
         <div class="jumbotron gray-700 mt-70">
             <div class="d-flex align-items-center h-100">
                 <div class="container text-center py-5">
-                     <h2 class="mb-0">Renault Clio</h2>
+                     <h2 class="mb-0"><?php echo $voiture->getMarque().''.$voiture->getModele() ?></h2>
                 </div>
             </div>
         </div>
