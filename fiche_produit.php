@@ -9,19 +9,27 @@
 // inclus les fichiers
 require_once './model/DbManager.php';
 require_once './model/MarqueManager.php';
+require_once './model/VoitureManager.php';
 require_once './class/Voiture.php';
 require_once './class/Marque.php';
-
+	
+	//récupération du paramètre id le voiture
 	if (isset($_GET['voiture']) && !empty($_GET['voiture'])) {
 		$idVoiture = $_GET['voiture'];
-		$voiture = VoitureManager::getVoituresById($idVoiture);
-		//var_dump($voiture);
-		//var_dump($marque);
-		$voiture = $voiture[0];
-		$marque = MarqueManager::getMarqueByIdMarque($voiture->getIdMarque());
+		$nbVoitures = VoitureManager::getnbVoitures();
+		if ($idVoiture > $nbVoitures) { //si id > nb total de voiture retour sur la pages des produits
+			header('Location: produits.php');
+		}
+		else {
+			$voiture = VoitureManager::getVoituresById($idVoiture);
+			//var_dump($voiture);
+			//var_dump($marque);
+			$voiture = $voiture[0];
+			$marque = MarqueManager::getMarqueByIdMarque($voiture->getIdMarque());
+		}
 	}
-	else {
-		//header('Location: produits.php');
+	else { // si aucun paramètre ou un paramètre vide retour sur la pages des produits
+		header('Location: produits.php');
 	}
 	
 	
@@ -36,6 +44,7 @@ require_once './class/Marque.php';
 
 	<title>Fiche_produit</title>
 
+	<link rel="icon" type="image/jpeg" href="./img/logo.jpeg"/>
 	<!-- Bootstrap & CSS -->
 	<link rel="stylesheet" href="./css/style.css">
 	<link rel="stylesheet" href="./css/bootstrap.min.css">

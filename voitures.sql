@@ -2,7 +2,7 @@
 CREATE DATABASE IF NOT EXISTS `projetweb` /*!40100 DEFAULT CHARACTER SET utf8 COLLATE utf8_general_ci */;
 USE `projetweb`;
 
--- supprime les tables existantes
+-- on supprime les tables existantes si elles n'existent pas
 
 drop table IF EXISTS `Voitures`;
 drop table IF EXISTS `Marques`;
@@ -35,7 +35,7 @@ CREATE TABLE IF NOT EXISTS `Voitures`(
 )ENGINE=InnoDB AUTO_INCREMENT=1 DEFAULT CHARSET=utf8 COLLATE=utf8_general_ci;
 
 
--- on insère des données
+-- on insère des données des Voitures
 insert into Voitures values(1,'FZ-208-DG', 1,'Xantia','Rouge',177500,1290,1361,65,2002,5,
                             'Elle n''est plus produite depuis un bon nombre d''années. Mais la qualité de sa conception était telle qu''elle permet encore aujourd''hui de disposer d''un modèle techniquement à la page et, concrètement, encore très valable dans les prestations qu''il offre.',
                             'Carrosserie: Berline, Energie: Diesel, Puissance fiscale: 6 CV, Puissance din: 90 ch, Boîte de vitesse: Manuel',
@@ -84,12 +84,12 @@ insert into Voitures values(12,'QD-751-VK', 1,'Xsara','Argent',201626,995,1152,5
                             'Dotée d''un bon confort et de qualités routières presque irréprochables, elle s''offre le plus souvent à des prix sans excès.',
                             'Carrosserie: Berline, Energie: Diesel, Puissance fiscale: 6 CV, Puissance din: 90 ch, Boîte de vitesse: Manuel',
                             'Berline de gamme moyenne avec un aspect compacte');
-
+-- on insère des données des Marques
 insert into Marques values(1,'Citroen');
 insert into Marques values(2,'Renault');
 insert into Marques values(3,'Peugeot');
 insert into Marques values(4,'Bugatti');
 
--- ajout contraite
+-- ajout d'une contrainte entre la table Voitures et la table Marques
 ALTER TABLE Voitures
 ADD CONSTRAINT fk_voitures foreign key (id_marque) REFERENCES Marques(id_marque);

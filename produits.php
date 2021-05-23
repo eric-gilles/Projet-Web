@@ -11,26 +11,47 @@
 // inclus les fichiers
 require_once './model/DbManager.php';
 require_once './model/MarqueManager.php';
+require_once './model/VoitureManager.php';
 require_once './class/Voiture.php';
 require_once './class/Marque.php';
 
+	//réceptionne les valeurs du formulaire et les traites
 	if (isset($_GET['search']) && !empty($_GET['search'])) {
 		$recherche = $_GET['search'];
+		$recherche = nettoyer($recherche);
 		$voitures = VoitureManager::getVoituresByName($recherche);
 		//var_dump($voitures);
 	}
 	else if (isset($_GET['marque']) && !empty($_GET['marque'])) {
 		$marque_recherche = $_GET['marque'];
+		$marque_recherche = nettoyer($marque_recherche);
 		if ($marque_recherche == 'all_marques') {
 			header('Location: ./produits.php');
 		}
-		$marque = MarqueManager::getMarqueByMarque($marque_recherche);
-		//var_dump($marque);
-		$voitures = VoitureManager::getVoituresByMarque($marque->getIdMarque());
-		//var_dump($voitures);
+		try {
+			$marque = MarqueManager::getMarqueByMarque($marque_recherche);
+			//var_dump($marque);
+			$voitures = VoitureManager::getVoituresByMarque($marque->getIdMarque());
+			//var_dump($voitures);
+		} catch (Exception $e) {
+			//die($e->getMessage());
+			header('Location: ./produits.php');
+		}
+		
 	}
 	else {
 		$voitures = VoitureManager::getallVoitures();
+	}
+
+	//Fonction permettant de nettoyer les données envoyées au travers du formulaire
+	function nettoyer($data){
+	    // Supprime les espaces (ou d'autres caractères) en début et fin de chaîne
+	    $data = trim($data);
+	    // Supprime les antislashs d'une chaîne
+	    $data = stripslashes($data);
+	    // Convertit les caractères spéciaux en entités HTML
+	    $data = htmlspecialchars($data);
+	    return $data;
 	}
 
 ?><!DOCTYPE html>
@@ -38,9 +59,13 @@ require_once './class/Marque.php';
 <head>
 	<meta charset="UTF-8">
 	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<meta name="description" content="Site de vente de Voitures d'occasions">
+    <meta name="author" content="AS Web">
 
 	<title>Les produits</title>
 
+	<!-- Logo -->
+	<link rel="icon" type="image/jpeg" href="./img/logo.jpeg"/>
 	<!-- Bootstrap & CSS -->
 	<link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">
@@ -55,11 +80,11 @@ require_once './class/Marque.php';
 	<?php
 		require_once './model/DbManager.php';
 		//require_once './inc/banner.php';
-		require_once './inc/navbar.php';		
-		echo "<div style='padding: 50px;'></div>\n<div class='row h-100'>";
+		require_once './inc/navbar.php';
 	?>
 	<!-- Barre de Recherche -->
-
+	<div style='padding: 50px;'></div>
+	<div class='row h-100'>
 	<div class="container">
 	    <div class="row mb-5">
 	        <div class="col-lg-9 mx-auto">
@@ -69,13 +94,14 @@ require_once './class/Marque.php';
 	                        <div class="row">
 	                        	<div class="col">
 	                            	<h5 class="text-info">Marques :</h5>
-	                            	
 	                            		<ul class="list-group list-group-horizontal-sm">
-	                                
 	                                    <?php
+	                                    	//Affichages des toutes les marques de la base de données pour les filtres
+
 	                                    	$marques = MarqueManager::getLesMarques();
 	        								//var_dump($marques);
 
+	                                    	//Affichages des checkbox et des marques et si elle sont cliqués lancement fonction javascript
 	                                        foreach ($marques as $value) {
 	                                        	echo "<li class='list-group-item mr-3 border-left'>\n";
 	                                        	echo "<div class='pl-2'>\n";
@@ -91,7 +117,6 @@ require_once './class/Marque.php';
 	                                    	echo "</li>\n";
 	                                    ?>
 	                                    </ul>
-
 	                            </div>
 	                        </div>
 	                    </div>
@@ -120,6 +145,7 @@ require_once './class/Marque.php';
 	<div class="container">
 	 	<div class="row">
 	 	<?php
+	 		//Affichage Card Bootstrap en fonction des réquêtes
 	 		$compteur = 0;
 	 		//var_dump($voitures);
 	 		if (isset($voitures) && !empty($voitures)) {
@@ -185,13 +211,11 @@ require_once './class/Marque.php';
     			else{
     				adresse += '?'+ input.name+"="+input.value;
     			}
-
     		}
-    		
     		window.location.replace(adresse);
     	}
 
-    	//A chaque chargement de page, on vérifie si la marque est dans l'URL est on coche la checkbox
+    	//A chaque chargement de page, on vérifie si la marque est dans l'URL est on coche la checkbox en fonction
     	window.onload = function onPageLoad() {
             if (window.location.toString().includes('Citroen')) {
                 document.getElementById('Citroen').checked = true;

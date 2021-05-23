@@ -18,7 +18,9 @@
     <meta name="author" content="AS Web">
 
 	<title>Contact</title>
-
+    
+    <!-- Logo -->
+    <link rel="icon" type="image/jpeg" href="./img/logo.jpeg"/>
     <!-- Bootstrap &CSS -->
     <link rel="stylesheet" href="./css/style.css">
     <link rel="stylesheet" href="./css/bootstrap.min.css">

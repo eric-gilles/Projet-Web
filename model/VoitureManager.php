@@ -94,7 +94,7 @@ class VoitureManager
             } else {
                 return null;
             }
-            var_dump(self::$lesVoitures);
+            //var_dump(self::$lesVoitures);
             return self::$lesVoitures;
         } catch (Exception $ex) {
             die('Erreur : ' . $ex->getMessage());
@@ -189,6 +189,18 @@ class VoitureManager
         } catch (Exception $ex) {
             die('Erreur : ' . $ex->getMessage());
         }
+    }
+
+    public static function getnbVoitures()
+    {
+        self::$cnx = DbManager::getConnection();
+        $sql ='select COUNT(*)';
+        $sql .= ' from voitures';
+        //var_dump($sql);
+        $result = self::$cnx->prepare($sql);   
+        $result->execute();
+        $resultat = $result->fetch();
+        return $resultat[0];
     }
 }
 ?>

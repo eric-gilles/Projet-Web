@@ -17,6 +17,7 @@
 
     <title>Accueil</title>
     
+    <!-- Logo -->
     <link rel="icon" type="image/jpeg" href="./img/logo.jpeg"/>
     <!-- Bootstrap & CSS -->
     <link rel="stylesheet" href="./css/style.css">
@@ -81,7 +82,7 @@
             </div>
         </div>
 
-    <!-- Contrôles -->
+    <!-- Contrôles du carrousel -->
         <a class="carousel-control-prev" href="#demo" role="button" data-slide="prev">
             <span class="carousel-control-prev-icon" aria-hidden="true"></span>
             <span class="sr-only">Précédent</span>
